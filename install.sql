@@ -47,6 +47,9 @@ prompt dept.sql...
 prompt emp.sql...
 @src/main/demo/table/emp.sql
 
+prompt exec_log.sql...
+@src/main/demo/table/exec_log.sql
+
 prompt
 prompt ================================================================================================================
 prompt DEMO: initial data load
@@ -57,6 +60,14 @@ prompt load_dept.sql...
 
 prompt load_dept.sql...
 @src/main/demo/data/load_emp.sql
+
+prompt
+prompt ================================================================================================================
+prompt DEMO: views (1)
+prompt ================================================================================================================
+
+prompt session_metrics.sql...
+@src/main/demo/view/session_metrics.sql
 
 prompt
 prompt ================================================================================================================
@@ -118,6 +129,9 @@ prompt =========================================================================
 prompt DEMO: package specifications
 prompt ================================================================================================================
 
+prompt exec_api.pks...
+@src/main/demo/package/exec_api.pks
+
 prompt validator_api.pks...
 @src/main/demo/package/validator_api.pks
 
@@ -126,12 +140,15 @@ prompt =========================================================================
 prompt DEMO: package bodies
 prompt ================================================================================================================
 
+prompt exec_api.pkb...
+@src/main/demo/package/exec_api.pkb
+
 prompt validator_api.pbs...
 @src/main/demo/package/validator_api.pkb
 
 prompt
 prompt ================================================================================================================
-prompt DEMO: views
+prompt DEMO: views (2)
 prompt ================================================================================================================
 
 prompt utl_xml_parse_query_examples.sql...
@@ -141,6 +158,9 @@ prompt
 prompt ================================================================================================================
 prompt DEMO: test package specifications
 prompt ================================================================================================================
+
+prompt test_exec_api.pks...
+@src/test/demo/package/test_exec_api.pks
 
 prompt test_increase_salary.pks...
 @src/test/demo/package/test_increase_salary.pks
@@ -161,6 +181,9 @@ prompt
 prompt ================================================================================================================
 prompt DEMO: test package bodies
 prompt ================================================================================================================
+
+prompt test_exec_api.pkb...
+@src/test/demo/package/test_exec_api.pkb
 
 prompt test_increase_salary.pkb...
 @src/test/demo/package/test_increase_salary.pkb
