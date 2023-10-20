@@ -18,3 +18,7 @@ grant execute on javascript to demo;
 
 -- for MLE module example
 grant create mle to demo;
+
+-- for experiments
+grant read on sys.v_$sesstat to demo;
+grant read on sys.v_$statname to demo;
