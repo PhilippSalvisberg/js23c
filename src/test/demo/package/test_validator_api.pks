@@ -9,9 +9,9 @@ create or replace package test_validator_api is
    procedure is_email_custom_settings;
 
    --%test
-   procedure is_email_mle_default_settings;
+   procedure is_email_djs_default_settings;
 
    --%test
-   procedure is_email_mle_custom_settings;
+   procedure is_email_djs_custom_settings;
 end test_validator_api;
 /

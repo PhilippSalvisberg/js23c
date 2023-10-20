@@ -1,4 +1,4 @@
-create or replace function to_epoch_mle(in_ts timestamp) return number is
+create or replace function to_epoch_djs(in_ts timestamp) return number is
    co_js    constant clob := q'~
       var bindings = require("mle-js-bindings");
       var ts = bindings.importValue("ts");
@@ -13,5 +13,5 @@ begin
    dbms_mle.import_from_mle(l_ctx, 'millis', l_millis);
    dbms_mle.drop_context(l_ctx);
    return l_millis;
-end;
+end to_epoch_djs;
 /

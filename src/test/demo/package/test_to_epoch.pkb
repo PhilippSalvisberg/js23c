@@ -32,12 +32,12 @@ create or replace package body test_to_epoch is
       ut.expect(l_actual).to_equal(l_expected);
    end;
 
-   procedure to_epoch_mle is
+   procedure to_epoch_djs is
       l_actual   integer := 0;
       l_expected integer := 1688551202000; -- 2023-07:05 10:00:02 UTC, https://www.epochconverter.com/
    begin
       -- act
-      l_actual := demo.to_epoch_mle(timestamp '2023-07-05 12:00:02');
+      l_actual := demo.to_epoch_djs(timestamp '2023-07-05 12:00:02');
       
       -- assert
       ut.expect(l_actual).to_equal(l_expected);
@@ -48,7 +48,7 @@ create or replace package body test_to_epoch is
       l_expected integer := 1688551203000; -- 2023-07:05 10:00:03 UTC, https://www.epochconverter.com/
    begin
       -- act
-      l_actual := demo.to_epoch_mle(timestamp '2023-07-05 12:00:03');
+      l_actual := demo.to_epoch_js(timestamp '2023-07-05 12:00:03');
       
       -- assert
       ut.expect(l_actual).to_equal(l_expected);

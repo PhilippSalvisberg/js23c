@@ -1,5 +1,5 @@
 create or replace package body validator_api is
-   function is_email_mle(
+   function is_email_djs(
       in_email in varchar2,
       in_options in json default null
    ) return boolean is
@@ -25,6 +25,6 @@ create or replace package body validator_api is
       dbms_mle.import_from_mle(l_ctx, 'result', l_result);
       dbms_mle.drop_context(l_ctx);
       return l_result;
-   end is_email_mle;
+   end is_email_djs;
 end validator_api;
 /

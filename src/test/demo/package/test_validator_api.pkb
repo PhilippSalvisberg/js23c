@@ -73,7 +73,7 @@ create or replace package body test_validator_api is
       ut.expect(c_actual).to_equal(c_expected).join_by('EMAIL');
    end is_email_custom_settings;
 
-   procedure is_email_mle_default_settings is
+   procedure is_email_djs_default_settings is
       c_actual   sys_refcursor;
       c_expected sys_refcursor;
    begin
@@ -87,7 +87,7 @@ create or replace package body test_validator_api is
                ('philipp@salvis'),
                ('Philipp Salvisberg <philipp@salvis.com>')
             )
-         select email, to_char(validator_api.is_email_mle(email)) as is_valid
+         select email, to_char(validator_api.is_email_djs(email)) as is_valid
            from tests;
       open c_expected for
          with
@@ -102,9 +102,9 @@ create or replace package body test_validator_api is
 
       -- assert
       ut.expect(c_actual).to_equal(c_expected).join_by('EMAIL');
-   end is_email_mle_default_settings;
+   end is_email_djs_default_settings;
 
-   procedure is_email_mle_custom_settings is
+   procedure is_email_djs_custom_settings is
       c_actual   sys_refcursor;
       c_expected sys_refcursor;
    begin
@@ -120,7 +120,7 @@ create or replace package body test_validator_api is
             )
          select email, 
                 to_char(
-                   validator_api.is_email_mle(
+                   validator_api.is_email_djs(
                       in_email   => email,
                       in_options => json(
                                        json_object(
@@ -145,6 +145,6 @@ create or replace package body test_validator_api is
 
       -- assert
       ut.expect(c_actual).to_equal(c_expected).join_by('EMAIL');
-   end is_email_mle_custom_settings;
+   end is_email_djs_custom_settings;
 end test_validator_api;
 /
