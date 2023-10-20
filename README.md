@@ -11,12 +11,14 @@ The examples require an [Oracle Database 23.3 Free](https://www.oracle.com/datab
 The available resources in a Oracle Database 23.3 are limited. On the database server I started `sqlplus / as sysdba` and ran the following
 
 ```sql
--- 2G Limit in Oracle Database 23c Free
-alter system set sga_target=1536M scope=spfile; -- 1536 this is the default
-alter system set pga_aggregate_target=512M scope=spfile; -- 512M is the default
+-- 1536M this is the default (75% of 2G max.)
+alter system set sga_target=1536M scope=spfile; 
+-- 512M is the default (25% of 2G max.)
+alter system set pga_aggregate_target=512M scope=spfile;
 
 -- SGA subarea settings
-alter system set java_pool_size=32M scope=spfile; -- 0 is the default
+-- 0 is the default
+alter system set java_pool_size=32M scope=spfile;
 
 -- restart the database
 shutdown immediate;
