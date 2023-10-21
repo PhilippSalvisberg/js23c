@@ -71,17 +71,6 @@ prompt session_metrics.sql...
 
 prompt
 prompt ================================================================================================================
-prompt DEMO: procedures
-prompt ================================================================================================================
-
-prompt utl_xml_parse_query.sql...
-@src/main/demo/procedure/utl_xml_parse_query.sql
-
-prompt increase_salary_plsql.sql...
-@src/main/demo/procedure/increase_salary_plsql.sql
-
-prompt
-prompt ================================================================================================================
 prompt DEMO: Java sources
 prompt ================================================================================================================
 
@@ -92,6 +81,9 @@ prompt
 prompt ================================================================================================================
 prompt DEMO: MLE modules
 prompt ================================================================================================================
+
+prompt increase_salary_mod.sql
+@src/main/demo/mle_module/increase_salary_mod.sql
 
 prompt util.sql
 @src/main/demo/mle_module/util.sql
@@ -123,6 +115,20 @@ prompt to_epoch_djs.sql...
 
 prompt to_epoch_js.sql...
 @src/main/demo/function/to_epoch_js.sql
+
+prompt
+prompt ================================================================================================================
+prompt DEMO: procedures
+prompt ================================================================================================================
+
+prompt utl_xml_parse_query.sql...
+@src/main/demo/procedure/utl_xml_parse_query.sql
+
+prompt increase_salary_js.sql...
+@src/main/demo/procedure/increase_salary_js.sql
+
+prompt increase_salary_plsql.sql...
+@src/main/demo/procedure/increase_salary_plsql.sql
 
 prompt
 prompt ================================================================================================================
