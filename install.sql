@@ -77,8 +77,8 @@ prompt =========================================================================
 prompt utl_xml_parse_query.sql...
 @src/main/demo/procedure/utl_xml_parse_query.sql
 
-prompt increase_salary.sql...
-@src/main/demo/procedure/increase_salary.sql
+prompt increase_salary_plsql.sql...
+@src/main/demo/procedure/increase_salary_plsql.sql
 
 prompt
 prompt ================================================================================================================
