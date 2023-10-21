@@ -23,7 +23,7 @@ with --@formatter:off
        where scenario like 'cold_start%'
    )
 select substr(scenario, 12) as scenario,
-       round(runtime, 2) as runtime,
+       round(runtime, 3) as runtime,
        db_time,
        uga_mem,
        pga_mem,
