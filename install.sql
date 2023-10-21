@@ -85,8 +85,8 @@ prompt =========================================================================
 prompt increase_salary_mod.sql
 @src/main/demo/mle_module/increase_salary_mod.sql
 
-prompt util.sql
-@src/main/demo/mle_module/util.sql
+prompt util_mod.sql
+@src/main/demo/mle_module/util_mod.sql
 
 prompt validator_mod.sql
 @src/main/demo/mle_module/validator_mod.sql
