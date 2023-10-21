@@ -1,0 +1,73 @@
+"LOG_ID","START_TIME","SCENARIO","RUN","NO_OF_CALLS","STMT","START_DB_TIME","START_SESSION_UGA_MEMORY_MAX","START_SESSION_PGA_MEMORY_MAX","START_MLE_TOTAL_MEMORY_IN_USE","START_JAVA_SESSION_HEAP_USED_SIZE_MAX","END_TIME","END_DB_TIME","END_SESSION_UGA_MEMORY_MAX","END_SESSION_PGA_MEMORY_MAX","END_MLE_TOTAL_MEMORY_IN_USE","END_JAVA_SESSION_HEAP_USED_SIZE_MAX","ERROR"
+34,21.10.2023 14:32:40.878214000,"to_epoch_100k plsql",1,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_plsql(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",3,654208,2110616,0,0,21.10.2023 14:32:41.307604000,3,793552,2307224,0,0,""
+35,21.10.2023 14:32:44.869278000,"to_epoch_100k plsql",2,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_plsql(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",1,654208,2241688,0,0,21.10.2023 14:32:45.297557000,1,850600,2438296,0,0,""
+36,21.10.2023 14:32:48.974907000,"to_epoch_100k plsql",3,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_plsql(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",1,654208,2241688,0,0,21.10.2023 14:32:49.399559000,1,850600,2438296,0,0,""
+37,21.10.2023 14:32:53.690449000,"to_epoch_100k java",1,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_java(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",71,785120,13055128,0,1081344,21.10.2023 14:33:37.969116000,71,859032,14562456,0,1406976,""
+38,21.10.2023 14:33:42.917870000,"to_epoch_100k java",2,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_java(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",46,785120,18101400,0,1085440,21.10.2023 14:34:10.063642000,46,859032,18101400,0,1447936,""
+39,21.10.2023 14:34:14.898895000,"to_epoch_100k java",3,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_java(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",72,785120,18101400,0,1081344,21.10.2023 14:34:45.373274000,72,916080,18101400,0,1447936,""
+40,21.10.2023 14:34:49.119687000,"to_epoch_100k djs",1,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_djs(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",7,850576,24630424,58608748,0,21.10.2023 14:40:11.801149000,7,924512,25023640,108864032,0,""
+41,21.10.2023 14:40:16.742896000,"to_epoch_100k djs",2,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_djs(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",8,850576,24630424,58608748,0,21.10.2023 14:45:27.345475000,8,924512,24892568,108450600,0,""
+42,21.10.2023 14:45:31.924319000,"to_epoch_100k djs",3,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_djs(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",5,850576,24630424,58608748,0,21.10.2023 14:50:44.045656000,5,924512,24892568,108451272,0,""
+43,21.10.2023 14:50:48.629517000,"to_epoch_100k js",1,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_js(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",5,850576,24630424,57429100,0,21.10.2023 14:50:50.032080000,5,924512,24827032,69316952,0,""
+44,21.10.2023 14:50:54.325159000,"to_epoch_100k js",2,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_js(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",5,850576,24630424,57429100,0,21.10.2023 14:50:55.717480000,5,924512,24761496,69316952,0,""
+45,21.10.2023 14:51:00.070804000,"to_epoch_100k js",3,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_js(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",6,850576,24630424,57429100,0,21.10.2023 14:51:01.504598000,6,924512,24761496,69316952,0,""
