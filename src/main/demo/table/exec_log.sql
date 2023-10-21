@@ -19,6 +19,6 @@ create table if not exists exec_log (
     end_session_pga_memory_max            integer           null,
     end_mle_total_memory_in_use           integer           null,
     end_java_session_heap_used_size_max   integer           null,
-    -- populated only after an exception (update)
+    -- columns populated only after an exception (update)
     error                                 clob              null
 );
