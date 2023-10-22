@@ -34,5 +34,16 @@ create or replace package test_increase_salary is
    procedure increase_salary_js_out_of_scale;
    
    --%endcontext
+
+   --%context(jsloop)
+
+   --%test
+   procedure increase_salary_jsloop_moderate;
+
+   --%test
+   --%throws(-1438)
+   procedure increase_salary_jsloop_out_of_scale;
+   
+   --%endcontext
 end test_increase_salary;
 /
