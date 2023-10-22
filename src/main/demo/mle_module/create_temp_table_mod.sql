@@ -9,18 +9,13 @@ export function createTempTable(tableName) {
   let result; 
   let validTableName; 
 
-  try {
-    result = conn.execute(
-      `select dbms_assert.qualified_sql_name(:tableName) as tab`, 
-      [tableName]
-    );
-    console.log(JSON.stringify(result));
-    validTableName = result.rows[0].TAB;
-  } catch (err) {
-    throw (`'${tableName}' is not a valid table name`);
-  }
-
   result = conn.execute(
+    `select dbms_assert.qualified_sql_name(:tableName) as tab`, 
+    [tableName]
+  );
+  validTableName = result.rows[0].TAB;
+
+  conn.execute(
     `create private temporary table ora\$ptt_${validTableName} (id number)`
   );
 }
