@@ -13,6 +13,17 @@ create or replace package test_increase_salary is
    
    --%endcontext
    
+   --%context(dplsql)
+
+   --%test
+   procedure increase_salary_dplsql_moderate;
+
+   --%test
+   --%throws(-1438)
+   procedure increase_salary_dplsql_out_of_scale;
+   
+   --%endcontext
+
    --%context(js)
 
    --%test
