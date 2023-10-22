@@ -12,7 +12,7 @@ create or replace package test_create_temp_table is
    procedure create_valid_temp_table_plsql;
 
    --%test
-   --%throws(-20501)
+   --%throws(-44004)
    procedure create_invalid_temp_table_plsql;
 
    --%endcontext

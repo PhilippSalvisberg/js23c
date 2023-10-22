@@ -25,7 +25,7 @@ create or replace package body test_create_temp_table is
    procedure create_invalid_temp_table_plsql is
    begin
       -- act
-      -- raises ORA-20501: 'TEST-PLSQL' is not a valid table name
+      -- raises ORA-44004: invalid qualified SQL name, ORA-06512: at "SYS.DBMS_ASSERT", line 355
       create_temp_table_plsql('TEST-PLSQL');
    end create_invalid_temp_table_plsql;
 
@@ -48,7 +48,7 @@ create or replace package body test_create_temp_table is
    procedure create_invalid_temp_table_js is
    begin
       -- act
-      -- raises ORA-04161: 'TEST-JS' is not a valid table name
+      -- raises ORA-04161: Database Error, ORA-44004: invalid qualified SQL name, ORA-06512: at "SYS.DBMS_ASSERT", line 355
       create_temp_table_js('TEST-JS');
    end create_invalid_temp_table_js;
 end test_create_temp_table;
