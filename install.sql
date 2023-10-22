@@ -82,6 +82,9 @@ prompt =========================================================================
 prompt DEMO: MLE modules
 prompt ================================================================================================================
 
+prompt increase_salary_loop_mod.sql
+@src/main/demo/mle_module/increase_salary_loop_mod.sql
+
 prompt increase_salary_mod.sql
 @src/main/demo/mle_module/increase_salary_mod.sql
 
@@ -126,6 +129,9 @@ prompt utl_xml_parse_query.sql...
 
 prompt increase_salary_js.sql...
 @src/main/demo/procedure/increase_salary_js.sql
+
+prompt increase_salary_jsloop.sql...
+@src/main/demo/procedure/increase_salary_jsloop.sql
 
 prompt increase_salary_dplsql.sql...
 @src/main/demo/procedure/increase_salary_dplsql.sql
