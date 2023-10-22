@@ -1,37 +1,55 @@
 "LOG_ID","START_TIME","SCENARIO","RUN","NO_OF_CALLS","STMT","START_DB_TIME","START_SESSION_UGA_MEMORY_MAX","START_SESSION_PGA_MEMORY_MAX","START_MLE_TOTAL_MEMORY_IN_USE","START_JAVA_SESSION_HEAP_USED_SIZE_MAX","END_TIME","END_DB_TIME","END_SESSION_UGA_MEMORY_MAX","END_SESSION_PGA_MEMORY_MAX","END_MLE_TOTAL_MEMORY_IN_USE","END_JAVA_SESSION_HEAP_USED_SIZE_MAX","ERROR"
-126,21.10.2023 22:03:06.296256000,"increase_salary_100k plsql",1,100000,"begin
+199,22.10.2023 08:28:27.542382000,"increase_salary_100k dplsql",1,100000,"begin
+   for i in 1..100000
+   loop
+      begin increase_salary_dplsql(in_deptno => 10, in_by_percent => 0); end;
+   end loop;
+end;",4,850576,3224728,0,0,22.10.2023 08:28:31.457758000,4,924512,3355800,0,0,""
+200,22.10.2023 08:28:40.307637000,"increase_salary_100k dplsql",2,100000,"begin
+   for i in 1..100000
+   loop
+      begin increase_salary_dplsql(in_deptno => 10, in_by_percent => 0); end;
+   end loop;
+end;",2,785096,2372760,0,0,22.10.2023 08:28:44.085749000,2,859032,2503832,0,0,""
+201,22.10.2023 08:28:53.132136000,"increase_salary_100k dplsql",3,100000,"begin
+   for i in 1..100000
+   loop
+      begin increase_salary_dplsql(in_deptno => 10, in_by_percent => 0); end;
+   end loop;
+end;",4,785096,2372760,0,0,22.10.2023 08:28:56.992551000,4,859032,2503832,0,0,""
+202,22.10.2023 08:29:05.813556000,"increase_salary_100k plsql",1,100000,"begin
    for i in 1..100000
    loop
       begin increase_salary_plsql(in_deptno => 10, in_by_percent => 0); end;
    end loop;
-end;",9,785096,2372760,0,0,21.10.2023 22:03:11.641467000,9,859032,2569368,0,0,""
-127,21.10.2023 22:03:16.227918000,"increase_salary_100k plsql",2,100000,"begin
+end;",3,850576,2438296,0,0,22.10.2023 08:29:09.386855000,3,916080,2569368,0,0,""
+203,22.10.2023 08:29:18.323280000,"increase_salary_100k plsql",2,100000,"begin
    for i in 1..100000
    loop
       begin increase_salary_plsql(in_deptno => 10, in_by_percent => 0); end;
    end loop;
-end;",16,785096,2372760,0,0,21.10.2023 22:03:23.091452000,16,859032,2503832,0,0,""
-128,21.10.2023 22:03:29.200015000,"increase_salary_100k plsql",3,100000,"begin
+end;",3,785096,2372760,0,0,22.10.2023 08:29:21.768820000,3,859032,2503832,0,0,""
+204,22.10.2023 08:29:30.546046000,"increase_salary_100k plsql",3,100000,"begin
    for i in 1..100000
    loop
       begin increase_salary_plsql(in_deptno => 10, in_by_percent => 0); end;
    end loop;
-end;",8,785096,2372760,0,0,21.10.2023 22:04:58.318893000,8,859032,7419032,0,0,""
-129,21.10.2023 22:05:02.372900000,"increase_salary_100k js",1,100000,"begin
+end;",4,785096,2372760,0,0,22.10.2023 08:29:34.136473000,4,859032,2503832,0,0,""
+205,22.10.2023 08:29:43.095196000,"increase_salary_100k js",1,100000,"begin
    for i in 1..100000
    loop
       begin increase_salary_js(in_deptno => 10, in_by_percent => 0); end;
    end loop;
-end;",17,1047016,24827032,57429100,0,21.10.2023 22:05:36.729367000,17,1055472,24958104,139342360,0,""
-130,21.10.2023 22:05:40.233041000,"increase_salary_100k js",2,100000,"begin
+end;",8,1112496,25744536,57429100,0,22.10.2023 08:30:14.570695000,8,1120952,25810072,139342360,0,""
+206,22.10.2023 08:30:23.573472000,"increase_salary_100k js",2,100000,"begin
    for i in 1..100000
    loop
       begin increase_salary_js(in_deptno => 10, in_by_percent => 0); end;
    end loop;
-end;",10,1047016,24827032,57429100,0,21.10.2023 22:06:50.943358000,10,1055472,24892568,139342360,0,""
-131,21.10.2023 22:06:55.553073000,"increase_salary_100k js",3,100000,"begin
+end;",8,1047016,24827032,57429100,0,22.10.2023 08:30:53.913516000,8,1055472,24892568,139342360,0,""
+207,22.10.2023 08:31:03.470350000,"increase_salary_100k js",3,100000,"begin
    for i in 1..100000
    loop
       begin increase_salary_js(in_deptno => 10, in_by_percent => 0); end;
    end loop;
-end;",9,1047016,24827032,57429100,0,21.10.2023 22:07:32.410446000,9,1055472,24892568,139342360,0,""
+end;",11,1047016,24827032,57429100,0,22.10.2023 08:31:34.837629000,11,1055472,24892568,139342360,0,""
