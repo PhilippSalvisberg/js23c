@@ -6,17 +6,31 @@ import oracledb from "mle-js-oracledb";
 
 export function createTempTable(tableName) {
   const conn = oracledb.defaultConnection();
-  let result; 
-  let validTableName; 
 
-  result = conn.execute(
+  // may throw a "ORA-04161: Database Error" without reference to this module (bad)
+  const result = conn.execute(
     `select dbms_assert.qualified_sql_name(:tableName) as tab`, 
     [tableName]
   );
-  validTableName = result.rows[0].TAB;
 
   conn.execute(
-    `create private temporary table ora\$ptt_${validTableName} (id number)`
+    `create private temporary table ora\$ptt_${result.rows[0].TAB} (id number)`
+  );
+}
+
+export function createTempTable2(tableName) {
+  const conn = oracledb.defaultConnection();
+
+  // may throw a "ORA-44004: invalid qualified SQL name" with reference to this module (good)
+  const result = conn.execute(
+    `begin
+      :tab := dbms_assert.qualified_sql_name(:tableName);
+     end;`,
+    {tab: {dir: oracledb.BIND_OUT}, tableName}
+  );
+
+  conn.execute(
+    `create private temporary table ora\$ptt_${result.outBinds.tab} (id number)`
   );
 }
 /
