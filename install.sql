@@ -82,6 +82,9 @@ prompt =========================================================================
 prompt DEMO: MLE modules
 prompt ================================================================================================================
 
+prompt create_temp_table_mod.sql
+@src/main/demo/mle_module/create_temp_table_mod.sql
+
 prompt increase_salary_loop_mod.sql
 @src/main/demo/mle_module/increase_salary_loop_mod.sql
 
@@ -124,8 +127,14 @@ prompt =========================================================================
 prompt DEMO: procedures
 prompt ================================================================================================================
 
-prompt utl_xml_parse_query.sql...
-@src/main/demo/procedure/utl_xml_parse_query.sql
+prompt create_temp_table_js.sql...
+@src/main/demo/procedure/create_temp_table_js.sql
+
+prompt create_temp_table_plsql.sql...
+@src/main/demo/procedure/create_temp_table_plsql.sql
+
+prompt increase_salary_dplsql.sql...
+@src/main/demo/procedure/increase_salary_dplsql.sql
 
 prompt increase_salary_js.sql...
 @src/main/demo/procedure/increase_salary_js.sql
@@ -133,11 +142,11 @@ prompt increase_salary_js.sql...
 prompt increase_salary_jsloop.sql...
 @src/main/demo/procedure/increase_salary_jsloop.sql
 
-prompt increase_salary_dplsql.sql...
-@src/main/demo/procedure/increase_salary_dplsql.sql
-
 prompt increase_salary_plsql.sql...
 @src/main/demo/procedure/increase_salary_plsql.sql
+
+prompt utl_xml_parse_query.sql...
+@src/main/demo/procedure/utl_xml_parse_query.sql
 
 prompt
 prompt ================================================================================================================
@@ -174,6 +183,9 @@ prompt =========================================================================
 prompt DEMO: test package specifications
 prompt ================================================================================================================
 
+prompt test_create_temp_table.pks...
+@src/test/demo/package/test_create_temp_table.pks
+
 prompt test_exec_api.pks...
 @src/test/demo/package/test_exec_api.pks
 
@@ -196,6 +208,9 @@ prompt
 prompt ================================================================================================================
 prompt DEMO: test package bodies
 prompt ================================================================================================================
+
+prompt test_create_temp_table.pkb...
+@src/test/demo/package/test_create_temp_table.pkb
 
 prompt test_exec_api.pkb...
 @src/test/demo/package/test_exec_api.pkb
