@@ -30,6 +30,30 @@ end;
 EOF
 }
 
+run_jsloop(){
+    RUN=${1}
+    sleep 5 # give the DB a bit time
+    sql ${DBUSER}/${DBPW}@${DBSERVER}:${DBPORT}/${DBSERVICE} <<EOF
+begin
+    -- init call, since the very first call in a session takes longer
+    increase_salary_jsloop(in_deptno => 10, in_by_percent => 0, in_times => 1);
+    commit;
+end;
+/  
+begin
+   -- now start measuring
+   exec_api.exec_stmt(
+      in_scenario    => 'increase_salary_100k jsloop',
+      in_run         => '${RUN}',
+      in_single_stmt => q'[begin increase_salary_jsloop(in_deptno => 10, in_by_percent => 0, in_times => 100000); end;]',
+      in_no_of_calls => 1
+   );
+   commit;
+end;
+/
+EOF
+}
+
 DBSERVER=192.168.1.8
 DBPORT=51007
 DBSERVICE=freepdb1
@@ -47,3 +71,7 @@ run "increase_salary_100k plsql" 3 "increase_salary_plsql"
 run "increase_salary_100k js" 1 "increase_salary_js"
 run "increase_salary_100k js" 2 "increase_salary_js"
 run "increase_salary_100k js" 3 "increase_salary_js"
+
+run_jsloop 1
+run_jsloop 2
+run_jsloop 3
