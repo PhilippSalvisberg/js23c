@@ -1,0 +1,12 @@
+{
+  "type": "module",
+  "dependencies": {
+    "mle-js-oracledb": "^23.3.0",
+    "mocha": "^10.2.0",
+    "oracledb": "^6.2.0",
+    "validator": "^13.11.0"
+  },
+  "scripts": {
+    "test": "mocha --timeout 2000"
+  }
+}
