@@ -10,10 +10,11 @@ with --@formatter:off
          + extract(day from l_interval) * 60 * 60 * 24; --@formatter:on
    end get_time;
    logs as (
-      select scenario,
+      select substr(scenario, 12) as scenario,
              run,
              get_time(start_time, end_time) as runtime,
-             min(get_time(start_time, end_time)) over (partition by scenario) as fastest_runtime,
+             min(get_time(start_time, end_time)) over (partition by scenario) as fastest_of_scenarios,
+             min(get_time(start_time, end_time)) over () as fastest_of_all,
              end_db_time - start_db_time as db_time,
              end_session_uga_memory_max as uga_mem,
              end_session_pga_memory_max as pga_mem,
@@ -22,14 +23,25 @@ with --@formatter:off
         from exec_log
        where scenario like 'cold_start%'
    )
-select substr(scenario, 12) as scenario,
-       round(runtime, 3) as runtime,
-       db_time,
+select scenario,
+       runtime,
+       round(1 * runtime / fastest_of_all, 1) as norm_runtime,
        uga_mem,
        pga_mem,
        mle_mem,
        java_mem,
        uga_mem + pga_mem + mle_mem + java_mem as mem_tot
   from logs
- where runtime = fastest_runtime;
- 
+ where runtime = fastest_of_scenarios
+ order by case scenario
+             when 'plsql' then
+                1
+             when 'java' then
+                2
+             when 'djs' then
+                3
+             else
+                4
+          end,
+       scenario;
+/
