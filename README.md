@@ -60,7 +60,7 @@ This CDN has the capability to provide an ESM for packages hosted on NPM. The go
     throw new Error('Failed to bundle using Rollup v2.79.1: the file imports a not supported node.js built-in module "net". If you believe this to be an issue with jsDelivr, and not with the package itself, please open an issue at https://github.com/jsdelivr/jsdelivr');
     ```
 
-- [better-assert v1.0.2](https://esm.run/better-assert@1.0.2]
+- [better-assert v1.0.2](https://esm.run/better-assert@1.0.2)
 
     ```
     /**
