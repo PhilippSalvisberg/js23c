@@ -2,11 +2,11 @@
 set define off
 script
 var url = new java.net.URL("https://esm.run/validator");
-var content = new java.lang.String(url.openStream().readAllBytes(), 
+var content = new java.lang.String(url.openStream().readAllBytes(),
                 java.nio.charset.StandardCharsets.UTF_8);
-var script = 'set scan off ' + '\n' 
+var script = 'set scan off ' + '\n'
                 + 'create or replace mle module validator_mod '
-                + 'language javascript as ' + '\n' 
+                + 'language javascript as ' + '\n'
                 + content + "\n"
                 + '/' + "\n";
 sqlcl.setStmt(script);
