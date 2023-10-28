@@ -1,4 +1,4 @@
-create or replace mle module increase_salary_mod language javascript as   
+create or replace mle module increase_salary_mod language javascript as
 export function increase_salary(deptno, by_percent) {
    oracledb.defaultConnection().execute(`
       update emp
