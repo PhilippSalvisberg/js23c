@@ -1,6 +1,6 @@
 create or replace package body validator_api is
    function is_email_djs(
-      in_email in varchar2,
+      in_email   in varchar2,
       in_options in json default null
    ) return boolean is
       co_js    constant clob := q'~
