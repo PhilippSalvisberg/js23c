@@ -9,7 +9,7 @@ create or replace package validator_api is
    ) return boolean as mle module validator_mod signature 'default.isEmail(string, any)';
 
    function is_email_djs(
-      in_email in varchar2,
+      in_email   in varchar2,
       in_options in json default null
    ) return boolean;
 end validator_api;
