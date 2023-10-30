@@ -20,9 +20,8 @@ declare
 ~');
    l_sink         blob;
    l_output       json;
-   l_data         json;
 begin
-   sys.dbms_lob.createtemporary(lob_loc => l_sink, cache => false, dur => dbms_lob.call);
+   sys.dbms_lob.createtemporary(lob_loc => l_sink, cache => false, dur => sys.dbms_lob.call);
    sys.dbms_mle.enable_debugging(debugspec => co_breakpoints, sink => l_sink);
    ut.run('DEMO:all.test_create_temp_table.nested_context_#2'); -- js context
    l_output := sys.dbms_mle.parse_debug_output(l_sink);
