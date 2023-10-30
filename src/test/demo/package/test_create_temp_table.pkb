@@ -25,10 +25,16 @@ create or replace package body test_create_temp_table is
    procedure create_invalid_temp_table_plsql is
    begin
       -- act
-      -- raises ORA-44004: invalid qualified SQL name, ORA-06512: at "SYS.DBMS_ASSERT", line 355
+      -- ORA-44003: invalid SQL name, ORA-06512: at "SYS.DBMS_ASSERT", line 192
       create_temp_table_plsql('TEST-PLSQL');
    end create_invalid_temp_table_plsql;
 
+   procedure create_enquoted_temp_table_plsql is
+   begin
+      -- act
+      -- ORA-00903: invalid table name, ORA-06512: at "DEMO.CREATE_TEMP_TABLE_PLSQL", line 7
+      create_temp_table_plsql('"TEST-PLSQL"');
+   end create_enquoted_temp_table_plsql;
 
    procedure create_valid_temp_table_js is
       c_actual   sys_refcursor;
@@ -48,8 +54,16 @@ create or replace package body test_create_temp_table is
    procedure create_invalid_temp_table_js is
    begin
       -- act
-      -- raises ORA-04161: Database Error, ORA-44004: invalid qualified SQL name, ORA-06512: at "SYS.DBMS_ASSERT", line 355
+      -- raises ORA-04161: Database Error, ORA-44003: invalid SQL name, ORA-06512: at "SYS.DBMS_ASSERT", line 192
       create_temp_table_js('TEST-JS');
    end create_invalid_temp_table_js;
+
+   procedure create_enquoted_temp_table_js is
+   begin
+      -- act
+      -- raises ORA-00903: invalid table name, ORA-04171: at createTempTable (DEMO.CREATE_TEMP_TABLE_MOD:12:3)
+      create_temp_table_js('"TEST-JS"');
+   end create_enquoted_temp_table_js;
+
 end test_create_temp_table;
 /
