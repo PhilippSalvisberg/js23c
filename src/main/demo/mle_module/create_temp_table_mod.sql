@@ -9,7 +9,7 @@ export function createTempTable(tableName) {
 
   // may throw a "ORA-04161: Database Error" without reference to this module (bad)
   const result = conn.execute(
-    `select dbms_assert.qualified_sql_name(:tableName) as tab`, 
+    `select dbms_assert.simple_sql_name(:tableName) as tab`, 
     [tableName]
   );
 
@@ -21,10 +21,10 @@ export function createTempTable(tableName) {
 export function createTempTable2(tableName) {
   const conn = oracledb.defaultConnection();
 
-  // may throw a "ORA-44004: invalid qualified SQL name" with reference to this module (good)
+  // may throw a "ORA-44003: invalid SQL name" with reference to this module (good)
   const result = conn.execute(
     `begin
-      :tab := dbms_assert.qualified_sql_name(:tableName);
+      :tab := dbms_assert.simple_sql_name(:tableName);
      end;`,
     {tab: {dir: oracledb.BIND_OUT}, tableName}
   );
