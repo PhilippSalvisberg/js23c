@@ -2,7 +2,6 @@ with --@formatter:off
    function get_time(in_start in timestamp, in_end in timestamp) return number is
       l_interval interval day (1) to second (6);
    begin
-   
       l_interval := in_end - in_start;
       return extract(second from l_interval)
          + extract(minute from l_interval) * 60
