@@ -2,35 +2,38 @@
 -- changed module name from dbms_assert_module to create_temp_table_mod
 create or replace mle module create_temp_table_mod language javascript as
 
-import oracledb from "mle-js-oracledb";
+import { simpleSqlName } from "sql-assert";
 
 export function createTempTable(tableName) {
-  const conn = oracledb.defaultConnection();
-
   // may throw a "ORA-04161: Database Error" without reference to this module (bad)
-  const result = conn.execute(
+  const result = session.execute(
     `select dbms_assert.simple_sql_name(:tableName) as tab`, 
     [tableName]
   );
 
-  conn.execute(
+  session.execute(
     `create private temporary table ora\$ptt_${result.rows[0].TAB} (id number)`
   );
 }
 
 export function createTempTable2(tableName) {
-  const conn = oracledb.defaultConnection();
-
   // may throw a "ORA-44003: invalid SQL name" with reference to this module (good)
-  const result = conn.execute(
+  const result = session.execute(
     `begin
       :tab := dbms_assert.simple_sql_name(:tableName);
      end;`,
     {tab: {dir: oracledb.BIND_OUT}, tableName}
   );
 
-  conn.execute(
+  session.execute(
     `create private temporary table ora\$ptt_${result.outBinds.tab} (id number)`
+  );
+}
+
+export function createTempTable3(tableName) {
+  // may throw a "ORA-04161: Error: Invalid SQL name." without reference to this module, but to sql-assert
+  session.execute(
+    `create private temporary table ora\$ptt_${simpleSqlName(tableName)} (id number)`
   );
 }
 /
