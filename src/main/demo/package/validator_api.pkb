@@ -5,10 +5,10 @@ create or replace package body validator_api is
    ) return boolean is
       co_js    constant clob := q'~
          (async () => {
-            var bindings = require("mle-js-bindings");
+            var bindings = await import("mle-js-bindings");
             var email = bindings.importValue("email");
             var options = bindings.importValue("options");
-            var validator = await import('validator');
+            var validator = await import("validator");
             var result = validator.default.isEmail(email, options);
             bindings.exportValue("result", result);
          })();
