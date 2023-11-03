@@ -94,9 +94,6 @@ prompt increase_salary_mod.sql
 prompt sql_assert_mod.sql
 @src/main/demo/mle_module/sql_assert_mod.sql
 
-prompt sql_template_tag_mod.sql
-@src/main/demo/mle_module/sql_template_tag_mod.sql
-
 prompt util_mod.sql
 @src/main/demo/mle_module/util_mod.sql
 
