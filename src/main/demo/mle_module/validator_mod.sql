@@ -1,7 +1,7 @@
 -- Requires SQLcl or SQL Developer (does not work in SQL*Plus or other clients).
 set define off
 script
-var url = new java.net.URL("https://esm.run/validator");
+var url = new java.net.URL("https://esm.run/validator@13.11.0");
 var content = new java.lang.String(url.openStream().readAllBytes(),
                 java.nio.charset.StandardCharsets.UTF_8);
 var script = 'set scan off ' + '\n'
