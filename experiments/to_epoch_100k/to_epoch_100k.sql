@@ -39,8 +39,10 @@ select scenario,
                 2
              when 'djs' then
                 3
-             else
+             when 'djs2' then
                 4
+             else
+                5
           end,
        scenario;
 /
