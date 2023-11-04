@@ -1,16 +1,3 @@
-create or replace mle module 
-   create_temp_table_mod language javascript as
-
-import { simpleSqlName } from "sql-assert";
-
-export function createTempTable(tableName) {
-  session.execute(
-    `create private temporary table
-        ora\$ptt_${simpleSqlName(tableName)} (id number)`
-  );
-}
-/
-
 exec create_temp_table_js('test a');
 
 set serveroutput on size unlimited
