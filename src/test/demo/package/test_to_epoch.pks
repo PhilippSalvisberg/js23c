@@ -18,6 +18,9 @@ create or replace package test_to_epoch is
    procedure to_epoch_djs;
 
    --%test
+   procedure to_epoch_djs2;
+
+   --%test
    procedure to_epoch_js;
 end test_to_epoch;
 /

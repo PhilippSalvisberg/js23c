@@ -43,6 +43,23 @@ create or replace package body test_to_epoch is
       ut.expect(l_actual).to_equal(l_expected);
    end;
 
+   procedure to_epoch_djs2 is
+      l_ctx      dbms_mle.context_handle_t;
+      l_actual   integer := 0;
+      l_expected integer := 1688551204000; -- 2023-07:05 10:00:04 UTC, https://www.epochconverter.com/
+   begin
+      -- act
+      l_ctx    := dbms_mle.create_context();
+      l_actual := demo.to_epoch_djs2(
+                     in_ctx => l_ctx,
+                     in_ts  => timestamp '2023-07-05 12:00:04'
+                  );
+      dbms_mle.drop_context(l_ctx);
+      
+      -- assert
+      ut.expect(l_actual).to_equal(l_expected);
+   end;
+
    procedure to_epoch_js is
       l_actual   integer := 0;
       l_expected integer := 1688551203000; -- 2023-07:05 10:00:03 UTC, https://www.epochconverter.com/
