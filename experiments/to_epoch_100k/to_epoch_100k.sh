@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Gather metrics for running 100'000 calls of to_epoch_[plsql|java|djs|js] in a new database session. 
+# Gather metrics for running 100'000 calls of to_epoch_[plsql|java|djs|djs2|js] in a new database session. 
 # Before starting measuring, a call is issued as session initialization.
 # Script requires SQLcl to be in the path.
 
