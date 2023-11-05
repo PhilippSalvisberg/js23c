@@ -4,7 +4,7 @@
 
 This repository contains the example used in the presentation [PL/SQL vs. JavaScript in the Oracle Database 23c,](https://www.salvis.com/blog/talks/).
 
-The examples require an [Oracle Database 23.3 Free](https://www.oracle.com/database/technologies/free-downloads.html) or newer with an with an installed [utPLSQL](https://github.com/utPLSQL/utPLSQL) framework v3.1.13 or newer.
+The examples require an [Oracle Database 23.3 Free](https://www.oracle.com/database/technologies/free-downloads.html) or newer with an installed [utPLSQL](https://github.com/utPLSQL/utPLSQL) framework v3.1.13 or newer.
 
 ## Database Configuration
 
