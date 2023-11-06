@@ -1,10 +1,17 @@
-//import oracledb from "mle-js-oracledb";
-import oracledb from "oracledb";
 import { simpleSqlName } from "sql-assert";
 
 export async function increase_salary(deptno, by_percent) {
-    const config = { user: "demo", password: "demo", connectString: "192.168.1.8:51007/freepdb1" };
-    const conn = await oracledb.getConnection(config);
+    let conn;
+    try {
+        // works when it runs within the Oracle Database
+        conn = session;
+    } catch (ReferenceError) {
+        // runs outside of the Oracle Database
+        const oracledb = await import("oracledb");
+        const config = { user: "demo", password: "demo", connectString: "192.168.1.8:51007/freepdb1" };
+        conn = await oracledb.getConnection(config);
+    }
+    
     // Cannot use sql-template-tag since they use either ? or $ as bind variables.
     // Both variants are not supported by oracledb. No plans by Oracle to support them.
     // See https://github.com/oracle/node-oracledb/issues/109
