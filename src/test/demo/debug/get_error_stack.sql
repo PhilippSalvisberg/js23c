@@ -21,7 +21,6 @@ begin
          || t_frames(i).col
          || ')'
       );
-      null;
    end loop;
 end;
 /
