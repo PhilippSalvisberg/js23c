@@ -41,7 +41,7 @@ The experiments ran on a [Synology DS923+](https://www.synology.com/en-global/pr
 
 The Oracle Database 23c Free ran in a Docker container based on the image `container-registry.oracle.com/database/free:23.3.0.0`. A mem_limit of 4G was configured for this container.
 
-## Sandbox
+## Sandbox1
 
 Small node.js project to run the same or similar JS code from mocha tests, which are more "demos". This allows me to use the autocomplete features of the IDE and the debugger for a better understanding of the codebase. 
 
