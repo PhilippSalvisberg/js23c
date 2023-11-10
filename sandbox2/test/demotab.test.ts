@@ -42,7 +42,7 @@ describe("invalid input", () => {
     });
     // ORA-00911: _: invalid character after <identifier>
     it("throws error on quoted deptName", () => {
-        expect(async () => await create('"dept"', 'emp')).rejects.toThrowError(/ORA-00911/);
+        expect(async () => await create('"dept"', "emp")).rejects.toThrowError(/ORA-00911/);
     });
     it("throws error on quoted empName", () => {
         expect(async () => await create("dept", '"emp"')).rejects.toThrowError(/ORA-00911/);
