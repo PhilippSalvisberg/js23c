@@ -48,7 +48,6 @@ Small node.js project to run the same or similar JS code from mocha tests, which
 ## Sandbox2
 
 Another node.js project for a MLE module written in TypeScript. The idea is to provide a public stored procedure in the database that creates and populates the well-known tables `dept` and `emp` in the current schema.
-```
 
 ## [jsdelivr.com](https://www.jsdelivr.com/)
 
