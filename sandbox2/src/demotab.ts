@@ -4,12 +4,15 @@ import { simpleSqlName } from "sql-assert";
 declare const session: any;
 
 /**
- * Creates demo tables with initial data.
+ * Creates demo tables with initial data for the well-known tables `dept` and `emp`.
+ * Alternative table names can be passed to this function. The tables are not re-created
+ * if they already exist. However, the rows for the 4 departments and the 14 employees
+ * should be reset to their initial state while other rows are left unchanged.
+ * Problems are reported via exceptions.
  *
  * @param [deptName="dept"] name of the dept table.
  * @param [empName="emp"] name of the emp table.
  * @returns {Promise<void>}.
- * @memberof ProfileService
  */
 export async function create(deptName: string = "dept", empName: string = "emp"): Promise<void> {
     const dept = simpleSqlName(deptName);
