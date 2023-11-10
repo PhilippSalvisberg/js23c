@@ -28,28 +28,6 @@ create or replace mle env demotab_env
    imports('sql-assert' module sql_assert_mod)
    language options 'js.strict=true, js.console=false, js.polyglot-builtin=true';
 
--- default values are not possible, overloading is not possible for standaline procedure
-create or replace procedure create_demo_tabs(
-  in_dept_table_name in varchar2,
-  in_emp_table_name  in varchar2
-) authid current_user as mle module demotab_mod env demotab_env signature 'create(string, string)';
-/
-
--- this workaround leads to an ORA-600
-create or replace procedure create_demo_tabs_ora600(
-    in_dept_table_name in varchar2 default 'dept',
-    in_emp_table_name  in varchar2 default 'emp'
-) authid current_user is
-    procedure create_demo_tabs_internal(
-       in_dept_table_name in varchar2,
-       in_emp_table_name  in varchar2
-    ) as mle module demotab_mod env demotab_env signature 'create(string, string)';
-begin
-    create_demo_tabs_internal(in_dept_table_name, in_emp_table_name);
-end;
-/
-
--- works as expected
 create or replace package demo authid current_user is
    procedure create_tabs as 
    mle module demotab_mod env demotab_env signature 'create()';
