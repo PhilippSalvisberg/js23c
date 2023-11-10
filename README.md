@@ -43,7 +43,12 @@ The Oracle Database 23c Free ran in a Docker container based on the image `conta
 
 ## Sandbox1
 
-Small node.js project to run the same or similar JS code from mocha tests, which are more "demos". This allows me to use the autocomplete features of the IDE and the debugger for a better understanding of the codebase. 
+Small node.js project to run the same or similar JS code from mocha tests, which are more "demos". This allows me to use the autocomplete features of the IDE and the debugger for a better understanding of the codebase.
+
+## Sandbox2
+
+Another node.js project for a MLE module written in TypeScript. The idea is to provide a public stored procedure in the database that creates and populates the well-known tables `dept` and `emp` in the current schema.
+```
 
 ## [jsdelivr.com](https://www.jsdelivr.com/)
 
