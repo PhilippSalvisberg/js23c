@@ -63,10 +63,10 @@ describe(
             ]);
             oracledb.fetchAsString = [oracledb.DATE];
             const emp = await global.session.execute(`
-            select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno 
-              from emp 
-             order by empno
-        `);
+                select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno 
+                from emp 
+                order by empno
+            `);
             expect(emp.rows).toEqual([
                 [7369, "SMITH", "CLERK", 7902, "1980-12-17", 800, null, 20],
                 [7499, "ALLEN", "SALESMAN", 7698, "1981-02-20", 1600, 300, 30],
@@ -88,33 +88,32 @@ describe(
             await create("dept2", "emp2");
             const dept = await global.session.execute("select * from dept minus select * from dept2");
             expect(dept.rows).toEqual([]);
-            oracledb.fetchAsString = [oracledb.DATE];
             const emp = await global.session.execute("select * from emp minus select * from emp2");
             expect(emp.rows).toEqual([]);
         });
         it("fix default (dept, emp)", async () => {
             await global.session.execute(`
-            begin
-                delete dept where deptno = 40;
-                update dept set loc = initcap(loc);
-                insert into dept(deptno, dname, loc) values(50, 'utPLSQL', 'Winterthur');
-                delete emp where empno = 7876;
-                update emp set sal = sal * 2;
-                insert into emp(empno, ename, job, hiredate, sal, deptno)
-                values (4242, 'Salvisberg', 'Tester', date '2000-01-01', 9999, '50');
-            end;
-        `);
+                begin
+                    delete dept where deptno = 40;
+                    update dept set loc = initcap(loc);
+                    insert into dept(deptno, dname, loc) values(50, 'utPLSQL', 'Winterthur');
+                    delete emp where empno = 7876;
+                    update emp set sal = sal * 2;
+                    insert into emp(empno, ename, job, hiredate, sal, deptno)
+                    values (4242, 'Salvisberg', 'Tester', date '2000-01-01', 9999, '50');
+                end;
+            `);
             await create();
             const dept = await global.session.execute("select * from dept minus select * from dept2");
             expect(dept.rows).toEqual([[50, "utPLSQL", "Winterthur"]]);
             oracledb.fetchAsString = [oracledb.DATE];
             const emp = await global.session.execute(`
-            select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno 
-              from emp 
-            minus 
-            select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno
-              from emp2
-        `);
+                select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno 
+                from emp 
+                minus 
+                select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno
+                from emp2
+            `);
             expect(emp.rows).toEqual([[4242, "Salvisberg", "Tester", null, "2000-01-01", 9999, null, 50]]);
         });
     },
