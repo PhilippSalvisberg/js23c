@@ -32,20 +32,23 @@ beforeAll(async () => {
     await dbaSession.close();
 });
 
-describe("invalid input", () => {
-    // ORA-04161: Error: Invalid SQL name.
+describe("invalid input causing Invalid SQL name.", () => {
+    // error is thrown in JavaScript (no ORA-04161 outside of the database)
     it("throws error on invalid deptName", () => {
-        expect(async () => await create("a-dept-table")).rejects.toThrowError(/invalid/i);
+        expect(async () => await create("a-dept-table")).rejects.toThrowError(/invalid sql/i);
     });
     it("throws error on invalid empName", () => {
-        expect(async () => await create("dept", "a-emp-table")).rejects.toThrowError(/invalid/i);
+        expect(async () => await create("dept", "a-emp-table")).rejects.toThrowError(/invalid sql/i);
     });
-    // ORA-00911: _: invalid character after <identifier>
+});
+
+describe("invalid input causing ORA-00911: _: invalid character after <identifier>", () => {
+    // error is thrown by the Oracle Database while trying to execute a SQL statement
     it("throws error on quoted deptName", () => {
-        expect(async () => await create('"dept"', "emp")).rejects.toThrowError(/ORA-00911/);
+        expect(async () => await create('"dept"', "emp")).rejects.toThrowError(/ORA-00911.+invalid/);
     });
     it("throws error on quoted empName", () => {
-        expect(async () => await create("dept", '"emp"')).rejects.toThrowError(/ORA-00911/);
+        expect(async () => await create("dept", '"emp"')).rejects.toThrowError(/ORA-00911.+invalid/);
     });
 });
 
