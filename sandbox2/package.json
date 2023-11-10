@@ -1,0 +1,29 @@
+{
+    "name": "demotab",
+    "version": "1.0.0",
+    "description": "Create and populate demo tables.",
+    "type": "module",
+    "scripts": {
+        "build": "npm run format && npm run lint && npm run tsc && npm run coverage",
+        "tsc": "tsc --project tsconfig.json",
+        "lint": "eslint . --ext .ts",
+        "format": "prettier --write './**/*{.ts,.eslintrc,.prettierrc,.json}'",
+        "test": "vitest --dir ./test",
+        "coverage": "vitest --dir ./test run --coverage"
+    },
+    "devDependencies": {
+        "@types/oracledb": "^6.0.3",
+        "@typescript-eslint/eslint-plugin": "^6.9.1",
+        "@typescript-eslint/parser": "^6.9.1",
+        "@vitest/coverage-v8": "^0.34.6",
+        "eslint": "^8.52.0",
+        "eslint-config-prettier": "^9.0.0",
+        "oracledb": "^6.2.0",
+        "prettier": "^3.0.3",
+        "typescript": "^5.2.2",
+        "vitest": "^0.34.6"
+    },
+    "dependencies": {
+        "sql-assert": "^1.0.3"
+    }
+}
