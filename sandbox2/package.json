@@ -8,8 +8,8 @@
         "tsc": "tsc --project tsconfig.json",
         "lint": "eslint . --ext .ts",
         "format": "prettier --write './**/*{.ts,.eslintrc,.prettierrc,.json}'",
-        "test": "vitest --dir ./test",
-        "coverage": "vitest --dir ./test run --coverage"
+        "test": "vitest --no-threads --reporter=verbose --dir ./test",
+        "coverage": "vitest --no-threads --dir ./test run --coverage"
     },
     "devDependencies": {
         "@types/oracledb": "^6.0.3",
