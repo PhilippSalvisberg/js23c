@@ -1,5 +1,7 @@
 # Visual Studio Code
 .vscode
+esm
+coverage
 
 # Log file
 *.log
