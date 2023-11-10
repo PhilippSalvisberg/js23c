@@ -46,3 +46,5 @@ end demo;
 -- required "execute on javascript" was granted to public in test
 grant execute on demo to public;
 create or replace public synonym demo for demotab.demo;
+
+exit
