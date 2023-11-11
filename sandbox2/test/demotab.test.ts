@@ -43,7 +43,6 @@ describe("TypeScript outside of the database", () => {
                     [30, "SALES", "CHICAGO"],
                     [40, "OPERATIONS", "BOSTON"]
                 ]);
-                oracledb.fetchAsString = [oracledb.DATE];
                 const emp = await global.session.execute(`
                     select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno 
                     from emp 
@@ -88,7 +87,6 @@ describe("TypeScript outside of the database", () => {
                 await create();
                 const dept = await global.session.execute("select * from dept minus select * from dept2");
                 expect(dept.rows).toEqual([[50, "utPLSQL", "Winterthur"]]);
-                oracledb.fetchAsString = [oracledb.DATE];
                 const emp = await global.session.execute(`
                     select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno 
                     from emp 
