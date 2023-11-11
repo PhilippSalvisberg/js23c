@@ -1,5 +1,5 @@
 import { beforeAll, afterAll, describe, it, expect, beforeEach } from "vitest";
-import { createSessions, closeSessions, otheruserSession, demotabSession, configDemotab } from "./dbconfig";
+import { createSessions, closeSessions, otheruserSession, demotabSession, demotabConfig } from "./dbconfig";
 import oracledb from "oracledb";
 import { exec } from "child_process";
 import util from "node:util";
@@ -27,7 +27,7 @@ describe("MLE JavaScript module within the database", () => {
         await createSessions();
         const execAsync = util.promisify(exec);
         await execAsync(
-            `sql -S ${configDemotab.user}/${configDemotab.password}@${configDemotab.connectString} @deploy.sql`
+            `sql -S ${demotabConfig.user}/${demotabConfig.password}@${demotabConfig.connectString} @deploy.sql`
         );
     }, timeout);
 

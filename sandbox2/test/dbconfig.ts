@@ -13,13 +13,13 @@ const sysConfig: oracledb.ConnectionAttributes = {
     privilege: oracledb.SYSDBA
 };
 
-export const configDemotab: oracledb.ConnectionAttributes = {
+export const demotabConfig: oracledb.ConnectionAttributes = {
     user: "demotab",
     password: "demotab",
     connectString: connectString
 };
 
-export const configOtheruser: oracledb.ConnectionAttributes = {
+export const otheruserConfig: oracledb.ConnectionAttributes = {
     user: "otheruser",
     password: "otheruser",
     connectString: connectString
@@ -27,12 +27,12 @@ export const configOtheruser: oracledb.ConnectionAttributes = {
 
 export async function createSessions(): Promise<void> {
     sysSession = await oracledb.getConnection(sysConfig);
-    await createUser(configDemotab);
-    await createUser(configOtheruser);
+    await createUser(demotabConfig);
+    await createUser(otheruserConfig);
     await sysSession.execute("grant create public synonym to demotab");
     await sysSession.execute("grant execute on javascript to public");
-    demotabSession = await oracledb.getConnection(configDemotab);
-    otheruserSession = await oracledb.getConnection(configOtheruser);
+    demotabSession = await oracledb.getConnection(demotabConfig);
+    otheruserSession = await oracledb.getConnection(otheruserConfig);
 }
 
 async function createUser(config: oracledb.ConnectionAttributes): Promise<void> {
