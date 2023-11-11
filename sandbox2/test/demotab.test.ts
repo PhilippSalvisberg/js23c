@@ -1,6 +1,5 @@
 import { beforeAll, afterAll, describe, it, expect } from "vitest";
 import { createSessions, closeSessions, demotabSession } from "./dbconfig";
-import oracledb from "oracledb";
 import { create } from "../src/demotab";
 
 describe("TypeScript outside of the database", () => {
