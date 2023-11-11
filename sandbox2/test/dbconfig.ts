@@ -1,6 +1,6 @@
 import oracledb from "oracledb";
 
-export let sysSession: oracledb.Connection;
+let sysSession: oracledb.Connection;
 export let demotabSession: oracledb.Connection;
 export let otheruserSession: oracledb.Connection;
 
