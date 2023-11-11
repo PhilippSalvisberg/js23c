@@ -36,14 +36,14 @@ describe("TypeScript outside of the database", () => {
         () => {
             it("should create 'dept' and 'emp' without parameters)", async () => {
                 await create();
-                const dept = await global.session.execute("select * from dept order by deptno");
+                const dept = await demotabSession.execute("select * from dept order by deptno");
                 expect(dept.rows).toEqual([
                     [10, "ACCOUNTING", "NEW YORK"],
                     [20, "RESEARCH", "DALLAS"],
                     [30, "SALES", "CHICAGO"],
                     [40, "OPERATIONS", "BOSTON"]
                 ]);
-                const emp = await global.session.execute(`
+                const emp = await demotabSession.execute(`
                     select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno 
                     from emp 
                     order by empno
@@ -67,13 +67,13 @@ describe("TypeScript outside of the database", () => {
             });
             it("should create 'dept2' and 'emp2' with both parameters)", async () => {
                 await create("dept2", "emp2");
-                const dept = await global.session.execute("select * from dept minus select * from dept2");
+                const dept = await demotabSession.execute("select * from dept minus select * from dept2");
                 expect(dept.rows).toEqual([]);
-                const emp = await global.session.execute("select * from emp minus select * from emp2");
+                const emp = await demotabSession.execute("select * from emp minus select * from emp2");
                 expect(emp.rows).toEqual([]);
             });
             it("should fix data in 'dept' and 'emp' after changing data and using default parameters", async () => {
-                await global.session.execute(`
+                await demotabSession.execute(`
                     begin
                         delete dept where deptno = 40;
                         update dept set loc = initcap(loc);
@@ -85,9 +85,9 @@ describe("TypeScript outside of the database", () => {
                     end;
                 `);
                 await create();
-                const dept = await global.session.execute("select * from dept minus select * from dept2");
+                const dept = await demotabSession.execute("select * from dept minus select * from dept2");
                 expect(dept.rows).toEqual([[50, "utPLSQL", "Winterthur"]]);
-                const emp = await global.session.execute(`
+                const emp = await demotabSession.execute(`
                     select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno 
                     from emp 
                     minus 
