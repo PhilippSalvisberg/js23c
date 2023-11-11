@@ -6,7 +6,7 @@ export let otheruserSession: oracledb.Connection;
 
 const connectString = "192.168.1.8:51007/freepdb1";
 
-export const sysConfig: oracledb.ConnectionAttributes = {
+const sysConfig: oracledb.ConnectionAttributes = {
     user: "sys",
     password: "oracle",
     connectString: connectString,
