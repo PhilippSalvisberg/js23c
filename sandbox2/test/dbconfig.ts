@@ -31,6 +31,7 @@ export async function createSessions(): Promise<void> {
     await createUser(otheruserConfig);
     await sysSession.execute("grant create public synonym to demotab");
     await sysSession.execute("grant execute on javascript to public");
+    sysSession.close();
     demotabSession = await oracledb.getConnection(demotabConfig);
     otheruserSession = await oracledb.getConnection(otheruserConfig);
 }
@@ -47,7 +48,6 @@ async function createUser(config: oracledb.ConnectionAttributes): Promise<void> 
 }
 
 export async function closeSessions(): Promise<void> {
-    await sysSession?.close();
     await demotabSession?.close();
     await otheruserSession?.close();
 }
