@@ -2,14 +2,13 @@
 -- Script is not called by the installation process.
 set define off
 script
-var url = new java.net.URL("https://esm.run/sql-template-tag@5.1.0");
-var content = new java.lang.String(url.openStream().readAllBytes(), 
+const url = new java.net.URL("https://esm.run/sql-template-tag@5.1.0");
+const content = new java.lang.String(url.openStream().readAllBytes(), 
                 java.nio.charset.StandardCharsets.UTF_8);
-var script = 'set scan off ' + '\n' 
-                + 'create or replace mle module sql_template_tag_mod '
-                + 'language javascript as ' + '\n' 
-                + content + "\n"
-                + '/' + "\n";
+const script = 'create or replace mle module sql_template_tag_mod '
+                    + 'language javascript as ' + '\n' 
+                    + content + "\n"
+                    + '/' + "\n";
 sqlcl.setStmt(script);
 sqlcl.run();
 /
