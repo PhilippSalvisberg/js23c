@@ -25,3 +25,6 @@ grant read on sys.v_$statname to demo;
 
 -- for create_temp_table_[plsql|js]
 grant create table to demo;
+
+-- avoiding ORA-01775: synonym DEMO resolves to itself due to circular translation
+drop public synonym if exists demo;
