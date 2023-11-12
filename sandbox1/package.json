@@ -5,7 +5,7 @@
     "mle-js-oracledb": "^23.3.0",
     "oracledb": "^6.2.0",
     "sentiment": "^5.0.2",
-    "sql-assert": "^1.0.2",
+    "sql-assert": "^1.0.3",
     "sql-template-tag": "^5.1.0",
     "validator": "^13.11.0"
   },
