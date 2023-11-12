@@ -8,7 +8,7 @@ before(async () => {
 })
 
 describe('increase_salary', function () {
-  it('By 0 percent for dept 10', async function () {
+  it('should affect 3 rows when increasing salary of emps in deptno 10', async function () {
     const affectedRows = await increase_salary(10, 0);
     assert(affectedRows == 3);
   });

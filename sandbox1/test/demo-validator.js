@@ -3,13 +3,13 @@ import validator from 'validator';
 
 describe('Validator', function () {
   describe('isEmail()', function () {
-    it('philipp@salvis.com is valid', function () {
+    it('should accept "philipp@salvis.com" as valid e-mail address', function () {
       assert(validator.isEmail('philipp@salvis.com'));
     });
-    it('Philipp Salvisberg <philipp@salvis.com> is invalid with default options', function () {
+    it('should not accept "Philipp Salvisberg <philipp@salvis.com>" as valid e-mail address with default options', function () {
       assert(validator.isEmail('Philipp Salvisberg <philipp@salvis.com>') === false);
     });
-    it('Philipp Salvisberg <philipp@salvis.com> is valid when allowing display name', function () {
+    it('should accept "Philipp Salvisberg <philipp@salvis.com>" as valid e-mail address when allowing display_name', function () {
       assert(validator.isEmail('Philipp Salvisberg <philipp@salvis.com>', {allow_display_name: true}));
     });
   });
