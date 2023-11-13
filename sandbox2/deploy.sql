@@ -1,23 +1,23 @@
 set define off
 script
-const url = new java.net.URL("https://esm.run/sql-assert@1.0.3");
-const content = new java.lang.String(url.openStream().readAllBytes(),
+var url = new java.net.URL("https://esm.run/sql-assert@1.0.3");
+var content = new java.lang.String(url.openStream().readAllBytes(),
                   java.nio.charset.StandardCharsets.UTF_8);
-const script = 'create or replace mle module sql_assert_mod '
-                  + 'language javascript as ' + '\n'
-                  + content + "\n"
-                  + '/' + "\n";
+var script = 'create or replace mle module sql_assert_mod '
+               + 'language javascript as ' + '\n'
+               + content + "\n"
+               + '/' + "\n";
 sqlcl.setStmt(script);
 sqlcl.run();
 /
 
 script
-const path = java.nio.file.Path.of("./esm/demotab.js");
-const content = java.nio.file.Files.readString(path);
-const script = 'create or replace mle module demotab_mod '
-                  + 'language javascript as ' + '\n'
-                  + content + "\n"
-                  + '/' + "\n";
+var path = java.nio.file.Path.of("./esm/demotab.js");
+var content = java.nio.file.Files.readString(path);
+var script = 'create or replace mle module demotab_mod '
+               + 'language javascript as ' + '\n'
+               + content + "\n"
+               + '/' + "\n";
 sqlcl.setStmt(script);
 sqlcl.run();
 /
