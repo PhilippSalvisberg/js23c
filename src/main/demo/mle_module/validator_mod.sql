@@ -5,9 +5,9 @@ var url = new java.net.URL("https://esm.run/validator@13.11.0");
 var content = new java.lang.String(url.openStream().readAllBytes(),
                 java.nio.charset.StandardCharsets.UTF_8);
 var script = 'create or replace mle module validator_mod '
-                    + 'language javascript as ' + '\n'
-                    + content + "\n"
-                    + '/' + "\n";
+                + 'language javascript as ' + '\n'
+                + content + "\n"
+                + '/' + "\n";
 sqlcl.setStmt(script);
 sqlcl.run();
 /
