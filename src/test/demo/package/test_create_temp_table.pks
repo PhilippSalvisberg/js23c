@@ -1,6 +1,7 @@
 create or replace package test_create_temp_table is
    --%suite
    --%suitepath(all)
+   --%rollback(manual)
    
    --%beforeeach
    --%aftereach
