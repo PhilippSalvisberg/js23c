@@ -88,6 +88,6 @@ using (values
 commit;
 
 begin
-   sys.dbms_stats.gather_table_stats(ownname => 'demo', tabname => 'emp');
+   sys.dbms_stats.gather_table_stats(ownname => 'demo1', tabname => 'emp');
 end;
 /

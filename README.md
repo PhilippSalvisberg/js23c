@@ -29,11 +29,11 @@ startup;
 
 The installation uses the `script` command and therefore requires a recent version of SQLcl or SQL Developer. It will not work with SQL*Plus or another client.
 
-1. Connect as `sys` and run [`@install.sql`](install.sql).
+Connect as `sys` and run [`@install.sql`](install.sql).
 
 ## Uninstallation
 
-Connect as `sys` and run `drop user demo cascade;`.
+Connect as `sys` and run `drop user demo1 cascade;`.
 
 ## Experiments
 

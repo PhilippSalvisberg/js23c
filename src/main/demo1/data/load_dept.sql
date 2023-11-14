@@ -17,6 +17,6 @@ using (values
 commit;
 
 begin
-   sys.dbms_stats.gather_table_stats(ownname => 'demo', tabname => 'dept');
+   sys.dbms_stats.gather_table_stats(ownname => 'demo1', tabname => 'dept');
 end;
 /
