@@ -21,7 +21,6 @@ with --@formatter:off
              end_java_session_heap_used_size_max as java_mem
         from exec_log
        where scenario like 'increase_salary_100k%'
-         and log_id > 198
    )
 select scenario,
        runtime,
