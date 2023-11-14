@@ -16,7 +16,7 @@ run(){
     FUNCTION_NAME=${3}
     restart_database
     #sleep 5 # give the database a bit time before executing the first command
-    sqlplus demo/demo@freepdb1 <<EOF
+    sqlplus demo1/demo1@freepdb1 <<EOF
 begin
    exec_api.exec_stmt(
       in_scenario    => '${SCENARIO}',

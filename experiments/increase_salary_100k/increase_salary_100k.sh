@@ -57,8 +57,8 @@ EOF
 DBSERVER=192.168.1.8
 DBPORT=51007
 DBSERVICE=freepdb1
-DBUSER=demo
-DBPW=demo
+DBUSER=demo1
+DBPW=demo1
 
 run "increase_salary_100k dplsql" 1 "increase_salary_dplsql"
 run "increase_salary_100k dplsql" 2 "increase_salary_dplsql"

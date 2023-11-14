@@ -36,8 +36,8 @@ EOF
 DBSERVER=192.168.1.8
 DBPORT=51007
 DBSERVICE=freepdb1
-DBUSER=demo
-DBPW=demo
+DBUSER=demo1
+DBPW=demo1
 
 run "warm_start plsql" 1 "to_epoch_plsql"
 run "warm_start plsql" 2 "to_epoch_plsql"
