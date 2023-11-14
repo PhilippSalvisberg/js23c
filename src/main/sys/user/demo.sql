@@ -12,7 +12,6 @@ grant db_developer_role to demo;
 grant execute on sys.utl_xml_lib to demo;
 
 -- for DBMS_MLE example
-grant execute on sys.dbms_mle to demo;
 grant execute dynamic mle to demo;
 grant execute on javascript to demo;
 
