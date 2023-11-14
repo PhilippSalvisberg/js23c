@@ -43,7 +43,7 @@ begin
    l_ctx := dbms_mle.create_context();
    for i in 1..in_no_of_calls
    loop
-      l_result := demo.to_epoch_djs2(
+      l_result := to_epoch_djs2(
                      in_ctx => l_ctx,
                      in_ts  => timestamp '2023-11-18 00:00:00'
                   );
