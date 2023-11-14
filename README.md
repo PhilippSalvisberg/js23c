@@ -37,9 +37,17 @@ Connect as `sys` and run `drop user demo1 cascade;`.
 
 ## Experiments
 
-The experiments ran on a [Synology DS923+](https://www.synology.com/en-global/products/DS923+#specs) with 64 GB RAM and a [AMD Ryzen R1600](https://www.cpubenchmark.net/cpu.php?cpu=AMD+Ryzen+Embedded+R1600) dual-core CPU and a volume based on two [WD Red SA 500 4TB](https://www.westerndigital.com/products/internal-drives/wd-red-sata-2-5-ssd?sku=WDS400T1R0A) SSDs. 
+### `...result.csv` and `...result2.csv`
+
+These experiments ran on a [Synology DS923+](https://www.synology.com/en-global/products/DS923+#specs) with 64 GB RAM and a [AMD Ryzen R1600](https://browser.geekbench.com/v6/cpu/1994870) dual-core CPU and a volume based on two [WD Red SA 500 4TB](https://www.westerndigital.com/products/internal-drives/wd-red-sata-2-5-ssd?sku=WDS400T1R0A) SSDs.
 
 The Oracle Database 23c Free ran in a Docker container based on the image `container-registry.oracle.com/database/free:23.3.0.0`. A mem_limit of 4G was configured for this container.
+
+### `...result_i7.csv`
+
+These experiments ran on a [Mac mini Server (Late 2012)](https://support.apple.com/kb/sp660?locale=en_GB) with 16 GB RAM and a [2.3 GHz Quad-Core Intel Core i7](https://browser.geekbench.com/macs/mac-mini-late-2012-intel-core-i7-3615qm-2-3-ghz-4-cores) and a [CRUCIAL BX100 SSD 1TB](https://www.crucial.com/products/ssd/bx100-ssd) SSD.
+
+The Oracle Database 23c Free ran in a Docker container based on the image `container-registry.oracle.com/database/free:23.3.0.0`. A mem_limit of 6G was configured for this container.
 
 ## Sandbox1
 
