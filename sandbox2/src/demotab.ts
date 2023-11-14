@@ -1,7 +1,8 @@
 import { simpleSqlName } from "sql-assert";
+import oracledb from "oracledb";
 
 // global variable for default connection in the database
-declare const session: any;
+declare const session: oracledb.Connection;
 
 /**
  * Creates demo tables with initial data for the well-known tables `dept` and `emp`.
