@@ -47,7 +47,7 @@ The Oracle Database 23c Free ran in a Docker container based on the image `conta
 
 These experiments ran on a [Mac mini Server (Late 2012)](https://support.apple.com/kb/sp660?locale=en_GB) with 16 GB RAM and a [2.3 GHz Quad-Core Intel Core i7](https://browser.geekbench.com/macs/mac-mini-late-2012-intel-core-i7-3615qm-2-3-ghz-4-cores) and a [CRUCIAL BX100 SSD 1TB](https://www.crucial.com/products/ssd/bx100-ssd) SSD.
 
-The Oracle Database 23c Free ran in a Docker container based on the image `container-registry.oracle.com/database/free:23.3.0.0`. A mem_limit of 6G was configured for this container.
+The Oracle Database 23c Free ran in a Docker container based on the image `container-registry.oracle.com/database/free:23.3.0.0`. There was no mem_limit defined for this container. However, the container was the only running container in a Docker Desktop environment with a total mem_limit of 7 GB.
 
 ## Sandbox1
 
