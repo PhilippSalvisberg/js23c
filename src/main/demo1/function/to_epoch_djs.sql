@@ -1,7 +1,7 @@
 create or replace function to_epoch_djs(in_ts in timestamp) return number is
    co_js    constant clob := q'~
-      var bindings = require("mle-js-bindings");
-      var ts = bindings.importValue("ts");
+      const bindings = require("mle-js-bindings");
+      const ts = bindings.importValue("ts");
       bindings.exportValue("millis", ts.valueOf());
    ~';
    l_ctx    dbms_mle.context_handle_t;
