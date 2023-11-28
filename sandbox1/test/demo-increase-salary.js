@@ -3,7 +3,7 @@ import assert from 'assert';
 import oracledb from 'oracledb';
 
 before(async () => {  
-  const config = { user: "demo", password: "demo", connectString: "192.168.1.8:51007/freepdb1" };
+  const config = { user: "demo1", password: "demo1", connectString: "192.168.1.8:51007/freepdb1" };
   global.session = await oracledb.getConnection(config);
 })
 
