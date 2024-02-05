@@ -1,6 +1,7 @@
 import { beforeAll, afterAll, describe, it, expect } from "vitest";
 import { createSessions, closeSessions, demotabSession } from "./dbconfig";
 import { create } from "../src/demotab";
+import sql from "sql-template-tag";
 
 describe("TypeScript outside of the database", () => {
     const timeout = 10000;
@@ -43,8 +44,8 @@ describe("TypeScript outside of the database", () => {
                     [40, "OPERATIONS", "BOSTON"]
                 ]);
                 const emp = await demotabSession.execute(`
-                    select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno 
-                    from emp 
+                    select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno
+                    from emp
                     order by empno
                 `);
                 expect(emp.rows).toEqual([
@@ -87,9 +88,9 @@ describe("TypeScript outside of the database", () => {
                 const dept = await demotabSession.execute("select * from dept minus select * from dept2");
                 expect(dept.rows).toEqual([[50, "utPLSQL", "Winterthur"]]);
                 const emp = await demotabSession.execute(`
-                    select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno 
-                    from emp 
-                    minus 
+                    select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno
+                    from emp
+                    minus
                     select empno, ename, job, mgr, to_char(hiredate,'YYYY-MM-DD'), sal, comm, deptno
                     from emp2
                 `);
@@ -98,6 +99,19 @@ describe("TypeScript outside of the database", () => {
         },
         timeout
     );
+
+    describe("run SQL-template-tag", () => {
+        it("should read emp of deptno 10 passed as bind", async () => {
+            await create();
+            const deptno: number = 10;
+            const query = sql`select * from emp where deptno = ${deptno} order by sal desc`;
+            const result = await demotabSession.execute(query.statement, query.values);
+            // possibility that this alternative will work with oracledb driver version 6.4, see https://github.com/oracle/node-oracledb/issues/1629
+            // @<disabled>ts-expect-error patch does not include the correct definitionin @types/oracledb/index.d.ts
+            // const result = await demotabSession.execute(sql`select * from emp where deptno = ${deptno} order by sal desc`);
+            expect(result.rows?.length).toEqual(3);
+        });
+    });
 
     afterAll(async () => {
         await closeSessions();
