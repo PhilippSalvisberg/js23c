@@ -70,5 +70,16 @@ create or replace package body test_to_epoch is
       -- assert
       ut.expect(l_actual).to_equal(l_expected);
    end;
+
+   procedure to_epoch_js2 is
+      l_actual   integer := 0;
+      l_expected integer := 1688551203000; -- 2023-07:05 10:00:03 UTC, https://www.epochconverter.com/
+   begin
+      -- act
+      l_actual := demo1.to_epoch_js2(timestamp '2023-07-05 12:00:03');
+      
+      -- assert
+      ut.expect(l_actual).to_equal(l_expected);
+   end;
 end test_to_epoch;
 /

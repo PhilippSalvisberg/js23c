@@ -22,5 +22,8 @@ create or replace package test_to_epoch is
 
    --%test
    procedure to_epoch_js;
+
+   --%test
+   procedure to_epoch_js2;
 end test_to_epoch;
 /
