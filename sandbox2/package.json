@@ -8,8 +8,8 @@
         "tsc": "tsc --project tsconfig.json",
         "lint": "eslint . --ext .ts",
         "format": "prettier --write './**/*{.ts,.eslintrc,.prettierrc,.json}'",
-        "test": "vitest --pool=threads --poolOptions.threads.singleThread --reporter=verbose --dir ./test",
-        "coverage": "vitest --pool=threads --poolOptions.threads.singleThread --dir ./test run --coverage"
+        "test": "vitest --pool=forks --poolOptions.forks.singleFork --reporter=verbose --dir ./test",
+        "coverage": "vitest --pool=forks --poolOptions.forks.singleThread --dir ./test run --coverage"
     },
     "devDependencies": {
         "@types/oracledb": "^6.3.0",
