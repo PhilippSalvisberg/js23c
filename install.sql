@@ -128,6 +128,9 @@ prompt to_epoch_djs2.sql...
 prompt to_epoch_js.sql...
 @src/main/demo1/function/to_epoch_js.sql
 
+prompt to_epoch_js2.sql...
+@src/main/demo1/function/to_epoch_js2.sql
+
 prompt
 prompt ================================================================================================================
 prompt DEMO1: procedures
