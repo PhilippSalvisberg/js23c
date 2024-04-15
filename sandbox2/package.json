@@ -8,20 +8,20 @@
         "tsc": "tsc --project tsconfig.json",
         "lint": "eslint . --ext .ts",
         "format": "prettier --write './**/*{.ts,.eslintrc,.prettierrc,.json}'",
-        "test": "vitest --no-threads --reporter=verbose --dir ./test",
-        "coverage": "vitest --no-threads --dir ./test run --coverage"
+        "test": "vitest --pool=threads --poolOptions.threads.singleThread --reporter=verbose --dir ./test",
+        "coverage": "vitest --pool=threads --poolOptions.threads.singleThread --dir ./test run --coverage"
     },
     "devDependencies": {
-        "@types/oracledb": "^6.0.3",
+        "@types/oracledb": "^6.3.0",
         "@typescript-eslint/eslint-plugin": "^6.9.1",
         "@typescript-eslint/parser": "^6.9.1",
-        "@vitest/coverage-v8": "0.34.6",
+        "@vitest/coverage-v8": "^1.5.0",
         "eslint": "^8.52.0",
         "eslint-config-prettier": "^9.0.0",
         "oracledb": "^6.3.0",
         "prettier": "^3.0.3",
         "typescript": "^5.2.2",
-        "vitest": "0.34.6",
+        "vitest": "^1.5.0",
         "sql-template-tag": "5.2.0"
     },
     "dependencies": {
