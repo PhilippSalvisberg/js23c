@@ -1,5 +1,15 @@
 import { defineConfig} from 'vite'
 
 export default defineConfig ({
-  test: {}
+  test: {
+    pool: 'forks',
+    poolOptions: {
+      forks: {
+        singleFork: true,
+      },
+      threads: {
+        singleThread: true
+      }
+    }
+  }
 })
