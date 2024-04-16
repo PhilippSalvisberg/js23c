@@ -273,7 +273,7 @@ prompt =========================================================================
 
 prompt done.
 
-set spool off
+spool off
 set define on
 set feedback on
 set verify on
