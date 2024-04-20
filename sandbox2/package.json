@@ -18,7 +18,7 @@
         "@vitest/coverage-v8": "^1.5.0",
         "eslint": "^8.52.0",
         "eslint-config-prettier": "^9.0.0",
-        "oracledb": "^6.3.0",
+        "oracledb": "^6.4.0",
         "prettier": "^3.0.3",
         "typescript": "^5.2.2",
         "vitest": "^1.5.0",
