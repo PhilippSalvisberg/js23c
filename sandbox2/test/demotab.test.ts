@@ -101,14 +101,17 @@ describe("TypeScript outside of the database", () => {
     );
 
     describe("run SQL-template-tag", () => {
-        it("should read emp of deptno 10 passed as bind", async () => {
+        it("should read emp of deptno 10 passed as bind (oracledb <6.4)", async () => {
             await create();
             const deptno: number = 10;
             const query = sql`select * from emp where deptno = ${deptno} order by sal desc`;
             const result = await demotabSession.execute(query.statement, query.values);
-            // possibility that this alternative will work with oracledb driver version 6.4, see https://github.com/oracle/node-oracledb/issues/1629
-            // @<disabled>ts-expect-error patch does not include the correct definitionin @types/oracledb/index.d.ts
-            // const result = await demotabSession.execute(sql`select * from emp where deptno = ${deptno} order by sal desc`);
+            expect(result.rows?.length).toEqual(3);
+        });
+        it("should read emp of deptno 10 passed as bind (oracledb >=6.4)", async () => {
+            await create();
+            const deptno: number = 10;
+            const result = await demotabSession.execute(sql`select * from emp where deptno = ${deptno} order by sal desc`);
             expect(result.rows?.length).toEqual(3);
         });
     });
