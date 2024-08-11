@@ -2,9 +2,12 @@ create or replace function to_epoch_djs2(
    in_ctx in dbms_mle.context_handle_t,
    in_ts  in timestamp
 ) return number is
+   -- In OracleDB 23.5.0 we must use "var" instead of "const" in co_js to avoid
+   -- ORA-04160: SyntaxError: Variable "bindings" has already been declared
+   -- when called more than once for a given in_ctx
    co_js    constant clob := q'~
-      const bindings = require("mle-js-bindings");
-      const ts = bindings.importValue("ts");
+      var bindings = require("mle-js-bindings");
+      var ts = bindings.importValue("ts");
       bindings.exportValue("millis", ts.valueOf());
    ~';
    l_millis number;
