@@ -4,7 +4,7 @@ let sysSession: oracledb.Connection;
 export let demotabSession: oracledb.Connection;
 export let otheruserSession: oracledb.Connection;
 
-const connectString = "192.168.1.8:51007/freepdb1";
+const connectString = "192.168.1.8:51008/freepdb1";
 
 const sysConfig: oracledb.ConnectionAttributes = {
     user: "sys",

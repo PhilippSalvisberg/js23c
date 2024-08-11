@@ -2,8 +2,8 @@ import { increase_salary } from '../src/increase_salary.js';
 import assert from 'assert';
 import oracledb from 'oracledb';
 
-before(async () => {  
-  const config = { user: "demo1", password: "demo1", connectString: "192.168.1.8:51007/freepdb1" };
+before(async () => {
+  const config = { user: "demo1", password: "demo1", connectString: "192.168.1.8:51008/freepdb1" };
   global.session = await oracledb.getConnection(config);
 })
 
@@ -14,6 +14,6 @@ describe('increase_salary', function () {
   });
 });
 
-after(async () => {  
+after(async () => {
   await session.close();
 })
