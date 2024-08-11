@@ -31,15 +31,23 @@ EOF
 run "cold_start plsql" 1 "to_epoch_plsql"
 run "cold_start plsql" 2 "to_epoch_plsql"
 run "cold_start plsql" 3 "to_epoch_plsql"
+run "cold_start plsql" 4 "to_epoch_plsql"
+run "cold_start plsql" 5 "to_epoch_plsql"
 
 run "cold_start java" 1 "to_epoch_java"
 run "cold_start java" 2 "to_epoch_java"
 run "cold_start java" 3 "to_epoch_java"
+run "cold_start java" 4 "to_epoch_java"
+run "cold_start java" 5 "to_epoch_java"
 
 run "cold_start djs" 1 "to_epoch_djs"
 run "cold_start djs" 2 "to_epoch_djs"
 run "cold_start djs" 3 "to_epoch_djs"
+run "cold_start djs" 4 "to_epoch_djs"
+run "cold_start djs" 5 "to_epoch_djs"
 
 run "cold_start js" 1 "to_epoch_js"
 run "cold_start js" 2 "to_epoch_js"
 run "cold_start js" 3 "to_epoch_js"
+run "cold_start js" 4 "to_epoch_js"
+run "cold_start js" 5 "to_epoch_js"

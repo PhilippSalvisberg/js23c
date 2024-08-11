@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Gather metrics for running 100'000 calls of to_epoch_[plsql|java|djs|djs2|js] in a new database session. 
+# Gather metrics for running 100'000 calls of to_epoch_[plsql|java|djs|djs2|js] in a new database session.
 # Before starting measuring, a call is issued as session initialization.
 # Script requires SQLcl to be in the path.
 
@@ -15,7 +15,7 @@ begin
     -- init call, since the very first call in a session takes longer
     l_result := ${FUNCTION_NAME}(timestamp '2023-11-18 00:00:00');
 end;
-/  
+/
 begin
    -- now start measuring
    exec_api.exec_stmt(
@@ -55,7 +55,7 @@ begin
     -- init call, since the very first call in a session takes longer
     doit(1);
 end;
-/  
+/
 begin
    -- now start measuring
    exec_api.exec_stmt(
@@ -71,7 +71,7 @@ EOF
 }
 
 DBSERVER=192.168.1.8
-DBPORT=51007
+DBPORT=51008
 DBSERVICE=freepdb1
 DBUSER=demo1
 DBPW=demo1
@@ -79,19 +79,29 @@ DBPW=demo1
 run "to_epoch_100k plsql" 1 "to_epoch_plsql"
 run "to_epoch_100k plsql" 2 "to_epoch_plsql"
 run "to_epoch_100k plsql" 3 "to_epoch_plsql"
+run "to_epoch_100k plsql" 4 "to_epoch_plsql"
+run "to_epoch_100k plsql" 5 "to_epoch_plsql"
 
 run "to_epoch_100k java" 1 "to_epoch_java"
 run "to_epoch_100k java" 2 "to_epoch_java"
 run "to_epoch_100k java" 3 "to_epoch_java"
+run "to_epoch_100k java" 4 "to_epoch_java"
+run "to_epoch_100k java" 5 "to_epoch_java"
 
 run "to_epoch_100k djs" 1 "to_epoch_djs"
 run "to_epoch_100k djs" 2 "to_epoch_djs"
 run "to_epoch_100k djs" 3 "to_epoch_djs"
+run "to_epoch_100k djs" 4 "to_epoch_djs"
+run "to_epoch_100k djs" 5 "to_epoch_djs"
 
 run "to_epoch_100k js" 1 "to_epoch_js"
 run "to_epoch_100k js" 2 "to_epoch_js"
 run "to_epoch_100k js" 3 "to_epoch_js"
+run "to_epoch_100k js" 4 "to_epoch_js"
+run "to_epoch_100k js" 5 "to_epoch_js"
 
 run_djs2 "to_epoch_100k djs2" 1
 run_djs2 "to_epoch_100k djs2" 2
 run_djs2 "to_epoch_100k djs2" 3
+run_djs2 "to_epoch_100k djs2" 4
+run_djs2 "to_epoch_100k djs2" 5

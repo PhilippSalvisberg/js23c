@@ -1,10 +1,10 @@
-# JavaScript Tests in the Oracle Database 23c
+# JavaScript Tests in the Oracle Database 23ai
 
-## Introduction 
+## Introduction
 
-This repository contains the example used in the presentation [PL/SQL vs. JavaScript in the Oracle Database 23c,](https://www.salvis.com/blog/talks/).
+This repository contains the example used in the presentation [PL/SQL vs. JavaScript in the Oracle Database](https://www.salvis.com/blog/talks/).
 
-The examples require an [Oracle Database 23.3 Free](https://www.oracle.com/database/technologies/free-downloads.html) or newer with an installed [utPLSQL](https://github.com/utPLSQL/utPLSQL) framework v3.1.13 or newer.
+The examples require an [Oracle Database 23.5 Free](https://www.oracle.com/database/technologies/free-downloads.html) or newer with an installed [utPLSQL](https://github.com/utPLSQL/utPLSQL) framework v3.1.13 or newer.
 
 ## Database Configuration
 
@@ -12,7 +12,7 @@ The available resources in a Oracle Database 23.3 are limited. On the database s
 
 ```sql
 -- 1536M this is the default (75% of 2G max.)
-alter system set sga_target=1536M scope=spfile; 
+alter system set sga_target=1536M scope=spfile;
 -- 512M is the default (25% of 2G max.)
 alter system set pga_aggregate_target=512M scope=spfile;
 
@@ -27,7 +27,7 @@ startup;
 
 ## Installation
 
-The installation uses the `script` command and therefore requires a recent version of SQLcl or SQL Developer. It will not work with SQL*Plus or another client.
+The installation uses the `script` command and therefore requires a recent version of SQLcl or SQL Developer. It will not work with SQL*Plus or another client. Furthermore SQLcl must use JRE with an JavaScript engine, since SQLcl does not come with a JavaScript engine. This is either a JDK 11 or a GraalVM JDK 17 for which JavaScript is installed via `gu install js`. Please note that `gu` was decommissioned in the latest GraalVM JDK.
 
 Connect as `sys` and run [`@install.sql`](install.sql).
 
@@ -37,17 +37,12 @@ Connect as `sys` and run `drop user demo1 cascade;`.
 
 ## Experiments
 
-### `...result.csv` and `...result2.csv`
+### `...result.csv`
 
 These experiments ran on a [Synology DS923+](https://www.synology.com/en-global/products/DS923+#specs) with 64 GB RAM and a [AMD Ryzen R1600](https://browser.geekbench.com/v6/cpu/1994870) dual-core CPU and a volume based on two [WD Red SA 500 4TB](https://www.westerndigital.com/products/internal-drives/wd-red-sata-2-5-ssd?sku=WDS400T1R0A) SSDs.
 
-The Oracle Database 23c Free ran in a Docker container based on the image `container-registry.oracle.com/database/free:23.3.0.0`. A mem_limit of 4G was configured for this container.
+The Oracle Database 23ai Free ran in a Docker container based on the image `gvenzl/oracle-free:23.5-full-faststart`. A mem_limit of 4G was configured for this container.
 
-### `...result_i7.csv`
-
-These experiments ran on a [Mac mini Server (Late 2012)](https://support.apple.com/kb/sp660?locale=en_GB) with 16 GB RAM and a [2.3 GHz Quad-Core Intel Core i7](https://browser.geekbench.com/macs/mac-mini-late-2012-intel-core-i7-3615qm-2-3-ghz-4-cores) and a [CRUCIAL BX100 SSD 1TB](https://www.crucial.com/products/ssd/bx100-ssd) SSD.
-
-The Oracle Database 23c Free ran in a Docker container based on the image `container-registry.oracle.com/database/free:23.3.0.0`. There was no mem_limit defined for this container. However, the container was the only running container in a Docker Desktop environment with a total mem_limit of 7 GB.
 
 ## Sandbox1
 
