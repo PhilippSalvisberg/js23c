@@ -70,6 +70,33 @@ drop procedure doit;
 EOF
 }
 
+run_jsloop(){
+    SCENARIO=${1}
+    RUN=${2}
+    sql ${DBUSER}/${DBPW}@${DBSERVER}:${DBPORT}/${DBSERVICE} <<EOF
+declare
+    l_result integer;
+begin
+    -- init call, since the very first call in a session takes longer
+    l_result := to_epoch_jsloop(
+                   in_ts    => timestamp '2023-11-18 00:00:00',
+                   in_times => 1
+                );
+end;
+/
+begin
+   -- now start measuring
+   exec_api.exec_stmt(
+      in_scenario    => '${SCENARIO}',
+      in_run         => '${RUN}',
+      in_single_stmt => q'[declare l_result integer; begin l_result := to_epoch_jsloop(in_ts => timestamp '2023-11-18 00:00:00', in_times => 100000); end;]',
+      in_no_of_calls => 1
+   );
+end;
+/
+EOF
+}
+
 DBSERVER=192.168.1.8
 DBPORT=51008
 DBSERVICE=freepdb1
@@ -105,3 +132,9 @@ run_djs2 "to_epoch_100k djs2" 2
 run_djs2 "to_epoch_100k djs2" 3
 run_djs2 "to_epoch_100k djs2" 4
 run_djs2 "to_epoch_100k djs2" 5
+
+run_jsloop "to_epoch_100k jsloop" 1
+run_jsloop "to_epoch_100k jsloop" 2
+run_jsloop "to_epoch_100k jsloop" 3
+run_jsloop "to_epoch_100k jsloop" 4
+run_jsloop "to_epoch_100k jsloop" 5
