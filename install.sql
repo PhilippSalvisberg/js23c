@@ -94,6 +94,9 @@ prompt increase_salary_mod.sql
 prompt sql_assert_mod.sql
 @src/main/demo1/mle_module/sql_assert_mod.sql
 
+prompt util_loop_mod.sql
+@src/main/demo1/mle_module/util_loop_mod.sql
+
 prompt util_mod.sql
 @src/main/demo1/mle_module/util_mod.sql
 
@@ -130,6 +133,9 @@ prompt to_epoch_js.sql...
 
 prompt to_epoch_js2.sql...
 @src/main/demo1/function/to_epoch_js2.sql
+
+prompt to_epoch_jsloop.sql...
+@src/main/demo1/function/to_epoch_jsloop.sql
 
 prompt
 prompt ================================================================================================================
