@@ -1,30 +1,31 @@
 create or replace package body validator_api is
-   function is_email_djs(
+   function is_email_internal(
       in_email   in varchar2,
-      in_options in json default null
-   ) return boolean is
-      co_js    constant clob := q'~
-         (async () => {
-            const bindings = await import("mle-js-bindings");
-            const email = bindings.importValue("email");
-            const options = bindings.importValue("options");
-            const validator = await import("validator");
-            const result = validator.default.isEmail(email, options);
-            bindings.exportValue("result", result);
-         })();
-      ~';
-      l_ctx    dbms_mle.context_handle_t;
-      l_options json;
-      l_result boolean;
+      in_options in json
+   ) return boolean deterministic as mle module validator_mod signature 'default.isEmail(string, any)';
+
+   function is_email(
+      in_email in varchar2
+   ) return boolean deterministic is
    begin
-      l_options := coalesce(in_options, JSON('{}'));
-      l_ctx := dbms_mle.create_context(environment => 'DEMO_ENV');
-      dbms_mle.export_to_mle(l_ctx, 'email', in_email);
-      dbms_mle.export_to_mle(l_ctx, 'options', l_options);
-      dbms_mle.eval(l_ctx, 'JAVASCRIPT', co_js);
-      dbms_mle.import_from_mle(l_ctx, 'result', l_result);
-      dbms_mle.drop_context(l_ctx);
-      return l_result;
-   end is_email_djs;
+      return is_email_internal(
+                in_email   => in_email,
+                in_options => json('
+                                 {
+                                    "allow_display_name": false,
+                                    "allow_undescores": false,
+                                    "require_display_name": false,
+                                    "allow_utf8_local_part": true,
+                                    "require_tld": true,
+                                    "allow_ip_domain": false,
+                                    "domain_specific_validation": false,
+                                    "blacklisted_chars": "",
+                                    "ignore_max_length": false,
+                                    "host_blacklist": ["dubious.com"],
+                                    "host_whitelist": []
+                                 }
+                              ')
+             );
+   end is_email;
 end validator_api;
 /
