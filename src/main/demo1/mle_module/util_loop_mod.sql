@@ -3,7 +3,7 @@ import {toEpoch} from "util";
 export function toEpochLoop(ts, times) {
    var result;
    for (let i=0; i<times; i++) {
-      result = ts.valueOf();
+      result = toEpoch(ts);
    }
    return result;
 }
