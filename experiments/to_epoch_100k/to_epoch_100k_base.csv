@@ -1,131 +1,136 @@
 "LOG_ID","START_TIME","SCENARIO","RUN","NO_OF_CALLS","STMT","START_DB_TIME","START_SESSION_UGA_MEMORY_MAX","START_SESSION_PGA_MEMORY_MAX","START_MLE_TOTAL_MEMORY_IN_USE","START_JAVA_SESSION_HEAP_USED_SIZE_MAX","END_TIME","END_DB_TIME","END_SESSION_UGA_MEMORY_MAX","END_SESSION_PGA_MEMORY_MAX","END_MLE_TOTAL_MEMORY_IN_USE","END_JAVA_SESSION_HEAP_USED_SIZE_MAX","ERROR"
-45,11.08.2024 08:15:39.414271000,"to_epoch_100k plsql",1,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_plsql(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",3,660264,2431328,0,0,11.08.2024 08:15:40.249837000,3,660264,2496864,0,0,""
-46,11.08.2024 08:15:43.477278000,"to_epoch_100k plsql",2,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_plsql(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",2,594784,2365792,0,0,11.08.2024 08:15:44.256850000,2,660264,2431328,0,0,""
-47,11.08.2024 08:15:47.328344000,"to_epoch_100k plsql",3,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_plsql(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",4,594784,2365792,0,0,11.08.2024 08:15:48.106582000,4,660264,2431328,0,0,""
-48,11.08.2024 08:15:51.210380000,"to_epoch_100k plsql",4,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_plsql(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",2,594784,2365792,0,0,11.08.2024 08:15:51.986601000,2,660264,2431328,0,0,""
-49,11.08.2024 08:15:55.138266000,"to_epoch_100k plsql",5,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_plsql(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",3,594784,2365792,0,0,11.08.2024 08:15:55.914598000,3,660264,2431328,0,0,""
-50,11.08.2024 08:15:59.553752000,"to_epoch_100k java",1,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_java(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",57,725768,20912480,0,991232,11.08.2024 08:16:41.973124000,57,725768,20912480,0,1427456,""
-51,11.08.2024 08:16:45.587428000,"to_epoch_100k java",2,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_java(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",55,725768,20978016,0,991232,11.08.2024 08:17:26.967870000,55,725768,20978016,0,1431552,""
-52,11.08.2024 08:17:30.581309000,"to_epoch_100k java",3,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_java(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",51,725768,20978016,0,991232,11.08.2024 08:18:11.798453000,51,725768,20978016,0,1431552,""
-53,11.08.2024 08:18:15.426784000,"to_epoch_100k java",4,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_java(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",51,725768,20978016,0,991232,11.08.2024 08:18:57.475496000,51,725768,20978016,0,1431552,""
-54,11.08.2024 08:19:01.059581000,"to_epoch_100k java",5,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_java(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",52,725768,20978016,0,991232,11.08.2024 08:19:43.308894000,52,725768,20978016,0,1431552,""
-55,11.08.2024 08:19:46.511393000,"to_epoch_100k djs",1,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_djs(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",15,1366480,18049376,29970316,0,11.08.2024 08:26:28.219203000,15,1366480,18049376,28485472,0,""
-56,11.08.2024 08:26:32.121583000,"to_epoch_100k djs",2,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_djs(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",11,1366480,18049376,29970316,0,11.08.2024 08:33:11.368832000,11,1366480,18049376,31255088,0,""
-57,11.08.2024 08:33:15.910916000,"to_epoch_100k djs",3,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_djs(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",9,1366480,17918304,29970316,0,11.08.2024 08:39:51.617004000,9,1366480,17918304,27324984,0,""
-58,11.08.2024 08:39:55.334511000,"to_epoch_100k djs",4,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_djs(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",11,1366480,17918304,29970316,0,11.08.2024 08:46:30.927385000,11,1366480,17918304,29778376,0,""
-59,11.08.2024 08:46:34.763584000,"to_epoch_100k djs",5,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_djs(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",10,1366480,17918304,29970316,0,11.08.2024 08:53:11.650108000,10,1366480,17918304,29568120,0,""
-60,11.08.2024 08:53:15.105194000,"to_epoch_100k js",1,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_js(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",11,1366480,18049376,29052812,0,11.08.2024 08:53:17.491353000,11,1366480,18049376,140946200,0,""
-61,11.08.2024 08:53:21.207332000,"to_epoch_100k js",2,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_js(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",11,1301000,17852768,29052812,0,11.08.2024 08:53:23.702653000,11,1301000,17852768,140946200,0,""
-62,11.08.2024 08:53:27.294048000,"to_epoch_100k js",3,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_js(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",10,1301000,17852768,29052812,0,11.08.2024 08:53:29.727667000,10,1301000,17852768,140946200,0,""
-63,11.08.2024 08:53:33.402131000,"to_epoch_100k js",4,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_js(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",8,1301000,17852768,29052812,0,11.08.2024 08:53:35.710844000,8,1301000,17852768,140946200,0,""
-64,11.08.2024 08:53:39.503060000,"to_epoch_100k js",5,100000,"begin
-   for i in 1..100000
-   loop
-      declare l_result integer; begin l_result := to_epoch_js(timestamp '2023-11-18 00:00:00'); end;
-   end loop;
-end;",7,1301000,17852768,29052812,0,11.08.2024 08:53:41.898390000,7,1301000,17852768,140946200,0,""
-79,11.08.2024 09:23:08.303441000,"to_epoch_100k djs2",1,1,"begin doit(100000); end;",20,1628256,18377056,29970316,0,11.08.2024 09:23:36.750343000,20,1628256,18377056,86141720,0,""
-80,11.08.2024 09:23:41.092209000,"to_epoch_100k djs2",2,1,"begin doit(100000); end;",14,1511456,18245984,29970316,0,11.08.2024 09:24:08.360041000,14,1511456,18245984,86141720,0,""
-81,11.08.2024 09:24:11.840970000,"to_epoch_100k djs2",3,1,"begin doit(100000); end;",14,1562872,18311520,29970316,0,11.08.2024 09:24:38.719308000,14,1562872,18311520,86272792,0,""
-82,11.08.2024 09:24:42.495672000,"to_epoch_100k djs2",4,1,"begin doit(100000); end;",12,1562872,18311520,29970316,0,11.08.2024 09:25:11.608702000,12,1562872,18311520,86141720,0,""
-83,11.08.2024 09:25:15.153450000,"to_epoch_100k djs2",5,1,"begin doit(100000); end;",13,1562872,18311520,29970316,0,11.08.2024 09:25:43.270017000,13,1562872,18311520,86272792,0,""
 161,13.08.2024 15:12:08.326188000,"to_epoch_100k jsloop",1,1,"declare l_result integer; begin l_result := to_epoch_jsloop(in_ts => timestamp '2023-11-18 00:00:00', in_times => 100000); end;",6,1301000,17852768,29052812,0,13.08.2024 15:12:08.357847000,6,1301000,17852768,41242760,0,""
 162,13.08.2024 15:12:11.970549000,"to_epoch_100k jsloop",2,1,"declare l_result integer; begin l_result := to_epoch_jsloop(in_ts => timestamp '2023-11-18 00:00:00', in_times => 100000); end;",7,1301000,17852768,29052812,0,13.08.2024 15:12:11.996766000,7,1301000,17852768,41242760,0,""
 163,13.08.2024 15:12:15.533559000,"to_epoch_100k jsloop",3,1,"declare l_result integer; begin l_result := to_epoch_jsloop(in_ts => timestamp '2023-11-18 00:00:00', in_times => 100000); end;",7,1301000,17852768,29052812,0,13.08.2024 15:12:15.563898000,7,1301000,17852768,41242760,0,""
 164,13.08.2024 15:12:19.117789000,"to_epoch_100k jsloop",4,1,"declare l_result integer; begin l_result := to_epoch_jsloop(in_ts => timestamp '2023-11-18 00:00:00', in_times => 100000); end;",5,1301000,17852768,29052812,0,13.08.2024 15:12:19.147855000,5,1301000,17852768,41242760,0,""
 165,13.08.2024 15:12:22.708494000,"to_epoch_100k jsloop",5,1,"declare l_result integer; begin l_result := to_epoch_jsloop(in_ts => timestamp '2023-11-18 00:00:00', in_times => 100000); end;",7,1301000,17852768,29052812,0,13.08.2024 15:12:22.738238000,7,1301000,17852768,41242760,0,""
+184,14.08.2024 08:10:44.041783000,"to_epoch_100k plsql",1,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_plsql(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",8,2734008,6691168,0,0,14.08.2024 08:10:44.494126000,8,2734008,6691168,0,0,""
+185,14.08.2024 08:10:47.182578000,"to_epoch_100k plsql",2,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_plsql(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",3,594784,2365792,0,0,14.08.2024 08:10:47.644721000,3,660264,2431328,0,0,""
+186,14.08.2024 08:10:50.306938000,"to_epoch_100k plsql",3,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_plsql(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",3,594784,2365792,0,0,14.08.2024 08:10:50.752163000,3,660264,2431328,0,0,""
+187,14.08.2024 08:10:53.420335000,"to_epoch_100k plsql",4,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_plsql(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",1,594784,2365792,0,0,14.08.2024 08:10:53.867774000,1,660264,2431328,0,0,""
+188,14.08.2024 08:10:56.580567000,"to_epoch_100k plsql",5,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_plsql(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",4,594784,2365792,0,0,14.08.2024 08:10:57.024001000,4,660264,2431328,0,0,""
+189,14.08.2024 08:11:01.156363000,"to_epoch_100k java",1,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_java(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",145,2625480,23402848,0,983040,14.08.2024 08:11:28.550878000,145,2625480,23402848,0,1427456,""
+190,14.08.2024 08:11:31.603384000,"to_epoch_100k java",2,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_java(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",37,725768,20978016,0,991232,14.08.2024 08:11:58.488222000,37,725768,20978016,0,1431552,""
+191,14.08.2024 08:12:01.520896000,"to_epoch_100k java",3,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_java(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",36,725768,20978016,0,991232,14.08.2024 08:12:29.815507000,36,725768,20978016,0,1431552,""
+192,14.08.2024 08:12:32.880871000,"to_epoch_100k java",4,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_java(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",36,725768,20978016,0,991232,14.08.2024 08:12:59.598460000,36,725768,20978016,0,1431552,""
+193,14.08.2024 08:13:02.664317000,"to_epoch_100k java",5,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_java(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",41,725768,20978016,0,991232,14.08.2024 08:13:29.506685000,41,725768,20978016,0,1431552,""
+194,14.08.2024 08:13:32.248185000,"to_epoch_100k djs",1,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_djs(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",9,1108424,18180448,29970316,0,14.08.2024 08:18:21.231125000,9,1108424,18180448,29779960,0,""
+195,14.08.2024 08:18:25.045278000,"to_epoch_100k djs",2,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_djs(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",7,1301000,17852768,29970316,0,14.08.2024 08:23:04.667812000,7,1301000,17852768,31576664,0,""
+196,14.08.2024 08:23:08.315919000,"to_epoch_100k djs",3,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_djs(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",6,1301000,17852768,29970316,0,14.08.2024 08:27:46.490921000,6,1301000,17852768,31839320,0,""
+197,14.08.2024 08:27:49.880918000,"to_epoch_100k djs",4,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_djs(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",9,1301000,17852768,29970316,0,14.08.2024 08:32:29.954357000,9,1301000,17852768,30302344,0,""
+198,14.08.2024 08:32:33.080598000,"to_epoch_100k djs",5,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_djs(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",9,1301000,17852768,29970316,0,14.08.2024 08:37:13.272137000,9,1301000,17852768,29957792,0,""
+199,14.08.2024 08:37:16.633131000,"to_epoch_100k js",1,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_js(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",9,1431912,18114912,29052812,0,14.08.2024 08:37:17.955664000,9,1431912,18114912,140946200,0,""
+200,14.08.2024 08:37:21.229774000,"to_epoch_100k js",2,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_js(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",5,1301000,17852768,29052812,0,14.08.2024 08:37:22.524282000,5,1301000,17852768,140946200,0,""
+201,14.08.2024 08:37:25.925228000,"to_epoch_100k js",3,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_js(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",9,1301000,17852768,29052812,0,14.08.2024 08:37:27.296139000,9,1301000,17852768,140946200,0,""
+202,14.08.2024 08:37:30.513214000,"to_epoch_100k js",4,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_js(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",8,1301000,17852768,29052812,0,14.08.2024 08:37:31.831816000,8,1301000,17852768,140946200,0,""
+203,14.08.2024 08:37:35.167906000,"to_epoch_100k js",5,100000,"begin
+   for i in 1..100000
+   loop
+      declare l_result integer; begin l_result := to_epoch_js(timestamp '2023-11-18 00:00:00'); end;
+   end loop;
+end;",5,1301000,17852768,29052812,0,14.08.2024 08:37:36.501266000,5,1301000,17852768,140946200,0,""
+204,14.08.2024 08:37:39.873785000,"to_epoch_100k djs2",1,1,"begin doit(100000); end;",15,2278000,18901344,29970316,0,14.08.2024 08:37:58.133348000,15,2278000,18901344,86141720,0,""
+205,14.08.2024 08:38:01.758189000,"to_epoch_100k djs2",2,1,"begin doit(100000); end;",12,1497392,18377056,29970316,0,14.08.2024 08:38:20.112401000,12,1497392,18377056,86141720,0,""
+206,14.08.2024 08:38:23.660682000,"to_epoch_100k djs2",3,1,"begin doit(100000); end;",10,1497392,18245984,29970316,0,14.08.2024 08:38:41.496974000,10,1497392,18245984,86141720,0,""
+207,14.08.2024 08:38:44.562154000,"to_epoch_100k djs2",4,1,"begin doit(100000); end;",10,1497392,18245984,29970316,0,14.08.2024 08:39:02.611640000,10,1497392,18245984,86141720,0,""
+208,14.08.2024 08:39:05.460069000,"to_epoch_100k djs2",5,1,"begin doit(100000); end;",10,1497392,18245984,29970316,0,14.08.2024 08:39:23.360581000,10,1497392,18245984,86141720,0,""
+209,14.08.2024 08:39:26.422017000,"to_epoch_100k jsloop",1,1,"declare l_result integer; begin l_result := to_epoch_jsloop(in_ts => timestamp '2023-11-18 00:00:00', in_times => 100000); end;",6,1301000,17983840,29052812,0,14.08.2024 08:39:26.478113000,6,1301000,17983840,58937480,0,""
+210,14.08.2024 08:39:30.147828000,"to_epoch_100k jsloop",2,1,"declare l_result integer; begin l_result := to_epoch_jsloop(in_ts => timestamp '2023-11-18 00:00:00', in_times => 100000); end;",7,1301000,17852768,29052812,0,14.08.2024 08:39:30.195683000,7,1301000,17852768,58937480,0,""
+211,14.08.2024 08:39:33.869857000,"to_epoch_100k jsloop",3,1,"declare l_result integer; begin l_result := to_epoch_jsloop(in_ts => timestamp '2023-11-18 00:00:00', in_times => 100000); end;",6,1301000,17852768,29052812,0,14.08.2024 08:39:33.921072000,6,1301000,17852768,58937480,0,""
+212,14.08.2024 08:39:37.569409000,"to_epoch_100k jsloop",4,1,"declare l_result integer; begin l_result := to_epoch_jsloop(in_ts => timestamp '2023-11-18 00:00:00', in_times => 100000); end;",8,1301000,17852768,29052812,0,14.08.2024 08:39:37.616618000,8,1301000,17852768,58937480,0,""
+213,14.08.2024 08:39:41.222342000,"to_epoch_100k jsloop",5,1,"declare l_result integer; begin l_result := to_epoch_jsloop(in_ts => timestamp '2023-11-18 00:00:00', in_times => 100000); end;",6,1301000,17852768,29052812,0,14.08.2024 08:39:41.271257000,6,1301000,17852768,58937480,0,""
