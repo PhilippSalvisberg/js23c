@@ -7,12 +7,12 @@ declare
   "version": "1.0",
   "debugpoints": [
     {
-      "at": {"name": "CREATE_TEMP_TABLE_MOD", "line": 4},
+      "at": {"name": "CREATE_TEMP_TABLE_MOD", "line": 5},
       "actions": [{"type": "watch", "id": "tableName"}],
       "condition": "tableName.includes('-')"
     },
     {
-      "at": {"name": "CREATE_TEMP_TABLE_MOD", "line": 12},
+      "at": {"name": "CREATE_TEMP_TABLE_MOD", "line": 10},
       "actions": [{"type": "snapshot"}]
     }
   ]
