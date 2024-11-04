@@ -1,0 +1,24 @@
+{
+    "name": "demotab",
+    "version": "1.0.0",
+    "description": "Create and populate demo tables.",
+    "type": "module",
+    "scripts": {
+        "build": "npm run format && npm run tsc && npm run coverage",
+        "tsc": "tsc --project tsconfig.json",
+        "format": "prettier --write './**/*{.ts,.prettierrc,.json}'",
+        "test": "vitest --pool=forks --poolOptions.forks.singleFork --reporter=verbose --dir ./test",
+        "coverage": "vitest --pool=forks --poolOptions.forks.singleThread --dir ./test run --coverage"
+    },
+    "devDependencies": {
+        "@types/oracledb": "^6.5.2",
+        "@vitest/coverage-v8": "^2.1.4",
+        "oracledb": "^6.6.0",
+        "prettier": "^3.3.3",
+        "typescript": "5.6.3",
+        "vitest": "^2.1.4"
+    },
+    "dependencies": {
+        "sql-assert": "^1.0.4"
+    }
+}
