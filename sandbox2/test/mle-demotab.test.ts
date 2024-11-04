@@ -13,7 +13,7 @@ describe("MLE JavaScript module within the database", () => {
                function num_rows(in_table_name in varchar2) return integer is
                   l_rows integer;
                begin
-                  execute immediate 'select count(*) from ' || in_table_name 
+                  execute immediate 'select count(*) from ' || in_table_name
                      into l_rows;
                   return l_rows;
                end;
@@ -35,7 +35,7 @@ describe("MLE JavaScript module within the database", () => {
         await otheruserSession.execute(`
             begin
                for r in (select table_name from user_tables) loop
-                  execute immediate 'drop table ' 
+                  execute immediate 'drop table '
                      || r.table_name
                      || ' cascade constraints purge';
                end loop;
@@ -46,8 +46,8 @@ describe("MLE JavaScript module within the database", () => {
     describe("deployment", () => {
         it("should have valid database objects in demotab user", async () => {
             const mods = await demotabSession.execute(`
-                select object_type, object_name, status 
-                  from user_objects 
+                select object_type, object_name, status
+                  from user_objects
                  order by object_type, object_name
             `);
             expect(mods.rows).toEqual([
