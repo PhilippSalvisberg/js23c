@@ -27,7 +27,7 @@ export async function create(deptName: string = "dept", empName: string = "emp")
     `);
     await session.execute(`
         merge into ${dept} t
-        using (values 
+        using (values
                  (10, 'ACCOUNTING', 'NEW YORK'),
                  (20, 'RESEARCH',   'DALLAS'),
                  (30, 'SALES',      'CHICAGO'),
@@ -73,7 +73,7 @@ export async function create(deptName: string = "dept", empName: string = "emp")
                  (7900, 'JAMES',  'CLERK',     7698, date '1981-12-03',  950, null, 30),
                  (7934, 'MILLER', 'CLERK',     7782, date '1982-01-23', 1300, null, 10),
                  (7369, 'SMITH',  'CLERK',     7902, date '1980-12-17',  800, null, 20),
-                 (7876, 'ADAMS',  'CLERK',     7788, date '1987-05-23', 1100, null, 20)                        
+                 (7876, 'ADAMS',  'CLERK',     7788, date '1987-05-23', 1100, null, 20)
               ) s (empno, ename, job, mgr, hiredate, sal, comm, deptno)
            on (t.empno = s.empno)
          when matched then
