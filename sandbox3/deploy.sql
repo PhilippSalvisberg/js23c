@@ -1,33 +1,14 @@
-set define off
-script
-var url = new java.net.URL("https://esm.run/sql-assert@1.0.4");
-var content = new java.lang.String(url.openStream().readAllBytes(),
-                  java.nio.charset.StandardCharsets.UTF_8);
-var script = "create or replace mle module sql_assert_mod "
-               + "language javascript as " + "\n"
-               + content + "\n"
-               + "/" + "\n";
-sqlcl.setStmt(script);
-sqlcl.run();
-/
-
-script
-var path = java.nio.file.Path.of("./esm/demotab.js");
-var content = java.nio.file.Files.readString(path);
-var script = "create or replace mle module demotab_mod "
-               + "language javascript as " + "\n"
-               + content + "\n"
-               + "/" + "\n";
-sqlcl.setStmt(script);
-sqlcl.run();
-/
+-- registered the mle command in login.sql found in SQLPATH via
+-- script https://raw.githubusercontent.com/PhilippSalvisberg/mle-sqlcl/main/mle.js register
+mle install sql_assert_mod https://esm.run/sql-assert@1.0.4 1.0.4
+mle install demotab_mod ./esm/demotab.js 1.0.0
 
 create or replace mle env demotab_env
    imports('sql-assert' module sql_assert_mod)
    language options 'js.strict=true, js.console=false, js.polyglot-builtin=true';
 
 create or replace package demo authid current_user is
-   procedure create_tabs as 
+   procedure create_tabs as
    mle module demotab_mod env demotab_env signature 'create()';
 
    procedure create_tabs(
