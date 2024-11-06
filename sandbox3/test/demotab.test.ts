@@ -67,7 +67,6 @@ describe("TypeScript outside of the database", () => {
         it("should not throw an error when called twice and produce tables DEPT and EMP", async () => {
             await create();
             await create();
-            const afterSecond = await demotabSession.execute("select table_name from user_tables order by table_name");
             expect((await userTables()).rows).toEqual([
                 ["DEPT", 4],
                 ["EMP", 14]
