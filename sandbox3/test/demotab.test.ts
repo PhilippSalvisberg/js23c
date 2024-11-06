@@ -68,7 +68,10 @@ describe("TypeScript outside of the database", () => {
             await create();
             await create();
             const afterSecond = await demotabSession.execute("select table_name from user_tables order by table_name");
-            expect((await userTables()).rows).toEqual([["DEPT", 4], ["EMP", 14]]);
+            expect((await userTables()).rows).toEqual([
+                ["DEPT", 4],
+                ["EMP", 14]
+            ]);
         });
     });
 
@@ -89,15 +92,24 @@ describe("TypeScript outside of the database", () => {
     describe("can pass an alternative table names", () => {
         it("should produce table D and EMP", async () => {
             await create("d");
-            expect((await userTables()).rows).toEqual([["D", 4], ["EMP", 14]]);
+            expect((await userTables()).rows).toEqual([
+                ["D", 4],
+                ["EMP", 14]
+            ]);
         });
         it("should produce table DEPT and E", async () => {
             await create(undefined, "e");
-            expect((await userTables()).rows).toEqual([["DEPT", 4], ["E", 14]]);
+            expect((await userTables()).rows).toEqual([
+                ["DEPT", 4],
+                ["E", 14]
+            ]);
         });
         it("should produce table D and E", async () => {
             await create("d", "e");
-            expect((await userTables()).rows).toEqual([["D", 4], ["E", 14]]);
+            expect((await userTables()).rows).toEqual([
+                ["D", 4],
+                ["E", 14]
+            ]);
         });
     });
 
@@ -110,7 +122,7 @@ describe("TypeScript outside of the database", () => {
         });
     });
 
-    describe("error when using quoted names)", () => {
+    describe("error when using quoted names", () => {
         it("should throw an error for quoted dept name", async () => {
             expect(async () => await create('"dept"')).rejects.toThrowError(/ORA-00911.+invalid/);
         });
@@ -131,10 +143,10 @@ describe("TypeScript outside of the database", () => {
                  order by a.constraint_type, a.table_name, b.table_name
             `);
             expect(ri.rows).toEqual([
-                ['P', 'DEPT', null],
-                ['P', 'EMP', null],
-                ['R', 'EMP', 'DEPT'],
-                ['R', 'EMP', 'EMP']
+                ["P", "DEPT", null],
+                ["P", "EMP", null],
+                ["R", "EMP", "DEPT"],
+                ["R", "EMP", "EMP"]
             ]);
         });
     });
@@ -143,16 +155,28 @@ describe("TypeScript outside of the database", () => {
         it("should add deleted rows in DEPT table", async () => {
             await create();
             await demotabSession.execute("delete from dept where deptno = 40");
-            expect((await userTables()).rows).toEqual([["DEPT", 3], ["EMP", 14]]);
+            expect((await userTables()).rows).toEqual([
+                ["DEPT", 3],
+                ["EMP", 14]
+            ]);
             await create();
-            expect((await userTables()).rows).toEqual([["DEPT", 4], ["EMP", 14]]);
+            expect((await userTables()).rows).toEqual([
+                ["DEPT", 4],
+                ["EMP", 14]
+            ]);
         });
         it("should add deleted rows in EMP table", async () => {
             await create();
             await demotabSession.execute("delete from emp where ename in ('SCOTT', 'ADAMS')");
-            expect((await userTables()).rows).toEqual([["DEPT", 4], ["EMP", 12]]);
+            expect((await userTables()).rows).toEqual([
+                ["DEPT", 4],
+                ["EMP", 12]
+            ]);
             await create();
-            expect((await userTables()).rows).toEqual([["DEPT", 4], ["EMP", 14]]);
+            expect((await userTables()).rows).toEqual([
+                ["DEPT", 4],
+                ["EMP", 14]
+            ]);
         });
     });
 
@@ -196,9 +220,15 @@ describe("TypeScript outside of the database", () => {
         it("should keep new rows in DEPT table", async () => {
             await create();
             await demotabSession.execute("insert into dept (deptno, dname, loc) values (50, 'Test', 'Nürnberg')");
-            expect((await userTables()).rows).toEqual([["DEPT", 5], ["EMP", 14]]);
+            expect((await userTables()).rows).toEqual([
+                ["DEPT", 5],
+                ["EMP", 14]
+            ]);
             await create();
-            expect((await userTables()).rows).toEqual([["DEPT", 5], ["EMP", 14]]);
+            expect((await userTables()).rows).toEqual([
+                ["DEPT", 5],
+                ["EMP", 14]
+            ]);
         });
         it("should add deleted rows in EMP table", async () => {
             await create();
@@ -206,9 +236,15 @@ describe("TypeScript outside of the database", () => {
                 insert into emp (empno, ename, job, mgr, hiredate, sal, comm, deptno)
                 values (1, 'MEYER', 'CLERK', 7839, DATE '2024-11-19', 4500, 250, 40)
             `);
-            expect((await userTables()).rows).toEqual([["DEPT", 4], ["EMP", 15]]);
+            expect((await userTables()).rows).toEqual([
+                ["DEPT", 4],
+                ["EMP", 15]
+            ]);
             await create();
-            expect((await userTables()).rows).toEqual([["DEPT", 4], ["EMP", 15]]);
+            expect((await userTables()).rows).toEqual([
+                ["DEPT", 4],
+                ["EMP", 15]
+            ]);
         });
     });
 
