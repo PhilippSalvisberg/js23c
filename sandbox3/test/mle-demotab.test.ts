@@ -43,6 +43,10 @@ describe("MLE JavaScript module within the database", () => {
         `);
     });
 
+    afterAll(async () => {
+        await closeSessions();
+    });
+
     describe("deployment", () => {
         it("should have valid database objects in demotab user", async () => {
             const mods = await demotabSession.execute(`
@@ -81,9 +85,5 @@ describe("MLE JavaScript module within the database", () => {
                 ["E", 14]
             ]);
         });
-    });
-
-    afterAll(async () => {
-        await closeSessions();
     });
 });

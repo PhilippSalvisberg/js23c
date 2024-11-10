@@ -63,6 +63,10 @@ describe("TypeScript outside of the database", () => {
         `);
     });
 
+    afterAll(async () => {
+        await closeSessions();
+    });
+
     describe("call to 'create' is idempotent", () => {
         it("should not throw an error when called twice and produce tables DEPT and EMP", async () => {
             await create();
@@ -245,9 +249,5 @@ describe("TypeScript outside of the database", () => {
                 ["EMP", 15]
             ]);
         });
-    });
-
-    afterAll(async () => {
-        await closeSessions();
     });
 });
