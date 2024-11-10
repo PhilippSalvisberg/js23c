@@ -19,37 +19,11 @@ docker run -d \
 
 # change password
 docker exec -it 23.5 ./setPassword.sh oracle
-
-# export volume
-docker stop 23.5
-mkdir -p $HOME/docker/23.5-data
-docker run --rm \
-    -v 23.5-data:/source \
-    -v $HOME/docker:/target \
-    ubuntu tar czvf /target/23.5-data.tar.gz /source
-sudo tar xvpfz $HOME/docker/23.5-data.tar.gz \
-    --strip-components=1 -C $HOME/docker/23.5-data
-
-# change permissions
-sudo chown 54321:54321 $HOME/docker/23.5-data
-sudo chmod -R 777 $HOME/docker/23.5-data
-sudo chmod 4640 $HOME/docker/23.5-data/dbconfig/FREE/dbs/orapwFREE
-
-# remove container
-docker rm 23.5
-docker volume prune -f
-
-# recreate container
-docker run -d \
-    --name 23.5 \
-    -p 1522:1521 \
-    -v $HOME/docker/23.5-data:/opt/oracle/oradata \
-    phsalvisberg/oracle-database-free:23.5-arm
 ```
 
 ### SQLcl with Java17 with JavaScript support
 
-Install SQLcl. See https://www.oracle.com/database/sqldeveloper/technologies/sqlcl/download/. I used version 24.3.0.285.0530.
+Install SQLcl. See https://www.oracle.com/database/sqldeveloper/technologies/sqlcl/download/. I used version 24.3.1.311.1631.
 
 SQLcl requires a JDK with Javascript enabled. Install GraalVM 17 and make it the default JDK.
 See https://www.graalvm.org/downloads/ and https://www.oracle.com/java/technologies/downloads/#graalvmjava17.
