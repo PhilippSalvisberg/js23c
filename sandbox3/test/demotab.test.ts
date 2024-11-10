@@ -4,8 +4,6 @@ import { createSessions, closeSessions, demotabSession } from "./dbconfig";
 import { create } from "../src/demotab";
 
 describe("TypeScript outside of the database", () => {
-    const timeout = 10000;
-
     const expectedDeptTableContent = [
         [10, "ACCOUNTING", "NEW YORK"],
         [20, "RESEARCH", "DALLAS"],
