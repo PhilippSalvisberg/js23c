@@ -1,5 +1,10 @@
 # Readme for Sandbox3
 
+Contains the example used in the demo of the presentation [How to Develop an MLE Module
+with Oracle Database 23ai?](https://www.salvis.com/blog/wp-content/uploads/2024/11/salvisberg-how-to-develop-an-mle-module-with-oracle-datagbase-23ai-20241119.pdf) at DOAG 2024 Conference + Exhibition on 19 November 2024.
+
+I ran the demo on my MacBook Pro with an Apple M1 Max chip and macOS 14.6.1. It should work on all platforms with small amendments.
+
 ## Prerequisites
 
 ### Oracle Database 23ai, version 23.5
